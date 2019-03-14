@@ -16,7 +16,7 @@
 <body onload="onLoad()">
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <!-- Form -->
-    <form method="post" class="form-box">
+    <form method="post" class="form-box" id="form-box">
     <div class="form-components">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <!-- Username -->
