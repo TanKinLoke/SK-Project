@@ -1,6 +1,10 @@
 function onLoad() {
     $("#Title").fadeIn("slow");
-    $("#form-box").slideDown("slow");
-    setTimeout($("#form-components").fadeIn("slow"),4000);
+    // $("#form-box").slideDown("slow");
+    $(".form-box").addClass("show");
+    // setTimeout($(".form-components").addClass("show"),4000);
+    setTimeout(function() {
+        $(".form-components").addClass("show")
+    },1000);
     document.getElementById("Title").style.display = "block";
 }
