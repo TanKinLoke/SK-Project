@@ -24,3 +24,11 @@ body {
 .form-components {
     transform: translateY(20%);
 }
+
+.Title {
+    display: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 400%;
+    font-weight: bold;
+    transform: translateY(230%);
+}
