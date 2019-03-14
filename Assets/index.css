@@ -23,6 +23,7 @@ body {
 
 .form-components {
     transform: translateY(20%);
+    display: none;
 }
 
 .Title {
@@ -33,6 +34,3 @@ body {
     transform: translateY(230%);
 }
 
-.RegisterDialog {
-    display:inline;
-}

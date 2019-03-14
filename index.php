@@ -16,10 +16,9 @@
 <body onload="onLoad()">
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <!-- Form -->
-    <form method="post">
-    <div class="form-box" id="form-box">
-    <div class="form-components">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <form method="post" class="form-box" id="form-box">
+    <div class="form-components" id="form-components">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
             <!-- Username -->
             <input class="mdl-textfield__input" type="text" id="username" name="username">
             <label class="mdl-textfield__label" for="username">Username</label>
@@ -38,7 +37,6 @@
         <br><br>
         <!-- Register dialog -->
         <a class="RegisterDialog">Belum daftar?</a><a href="">Daftar sekarang</a>
-    </div>
     </div>
     </form>
 
