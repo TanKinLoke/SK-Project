@@ -1,0 +1,26 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-image: url("../background.png");
+    background-size: 100%;
+}
+
+.form-box {
+    background-color: blue;
+    display: inline-block;
+    height: 50%;
+    width:50%;
+    top: 50%;
+    left: 50%;
+    transform: translateY(50%);
+}
+
+.form-components {
+    transform: translateY(20%);
+}
