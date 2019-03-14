@@ -16,7 +16,8 @@
 <body onload="onLoad()">
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <!-- Form -->
-    <form method="post" class="form-box" id="form-box">
+    <form method="post">
+    <div class="form-box" id="form-box">
     <div class="form-components">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <!-- Username -->
@@ -36,7 +37,8 @@
         </button>
         <br><br>
         <!-- Register dialog -->
-        <a>Belum daftar?</a><a href="">Daftar sekarang</a>
+        <a class="RegisterDialog">Belum daftar?</a><a href="">Daftar sekarang</a>
+    </div>
     </div>
     </form>
 
