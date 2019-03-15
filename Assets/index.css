@@ -85,3 +85,21 @@ body {
     background: none;
     border: none;
 }
+
+.spinner {
+    transition: 1s;
+    opacity: 0;
+}
+
+.spinner.show {
+    transition: 1s;
+    opacity: 1;
+}
+
+.login-username,.login-password {
+    transform: translateY(-20%);
+}
+
+.login-text,.register-text {
+    color: darkblue;
+}

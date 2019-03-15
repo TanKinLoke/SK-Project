@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./Assets/index.css">
     <script src="./Assets/main.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" /> 
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css" /> 
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
@@ -19,13 +19,13 @@
     <form method="post">
     <div class="login-form-box" id="login-form-box">
         <div class="login-form-components">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label login-username">
                 <!-- Username -->
                 <input class="mdl-textfield__input" type="text" id="login-username" name="login-username">
                 <label class="mdl-textfield__label" for="login-username">Username</label>
             </div>
             <br>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label login-password">
                 <!-- Password -->
                 <input class="mdl-textfield__input" type="password" id="login-password" name="login-password">
                 <label class="mdl-textfield__label" for="login-password">Password</label>
@@ -37,7 +37,7 @@
             </button>
             <br><br>
             <!-- Register dialog -->
-            <a class="RegisterDialog">Belum daftar?</a><button class="register-button" type="button" onclick="registerButtonPressed()"><a>Daftar sekarang</a></button>
+            <a class="RegisterDialog">Belum daftar?</a><button class="register-button" type="button" onclick="registerButtonPressed()"><a class="register-text">Daftar sekarang</a></button>
         </div>
     </div>
     <!-- Register Form -->
@@ -66,9 +66,10 @@
                     Register
                 </button>
                 <br><br>
-                <button type="button" class="back-login-box" onclick="BackToLoginBox()"><a>Back to Login</a></button>
+                <button type="button" class="back-login-box" onclick="BackToLoginBox()"><a class="login-text">Back to Login</a></button>
             </div>
         </div>
     </form>
+
 </body>
 </html>

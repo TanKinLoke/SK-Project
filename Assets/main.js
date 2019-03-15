@@ -45,3 +45,11 @@ function BackToLoginBox() {
         LoginBoxOn();
     },500);
 }
+
+function SpinnerOn() {
+    $(".spinner").addClass("show");
+}
+
+function SpinnerOff() {
+    $(".spinner").removeClass("show");
+}
