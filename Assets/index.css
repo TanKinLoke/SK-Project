@@ -12,28 +12,30 @@ body {
     overflow: hidden;
 }
 
-.form-box {
-    background-color: blue;
+.login-form-box {
+    transition: 1s;
+    background-color: rgba(255, 255, 255, 0.897);
     height: 50%;
     width: 50%;
     top: 50%;
     left: 50%;
-    transform: translateX(50%) translateY(300%);
+    transform: translateX(-300%) translateY(40%);
     opacity: 0;
 }
 
-.form-box.show {
+.login-form-box.show {
     transition: 1s;
-    transform: translateX(50%) translateY(50%);
+    transform: translateX(50%) translateY(40%);
     opacity: 1;
 }
 
-.form-components {
+.login-form-components {
+    transition: 0.4s;
     padding: 6rem 0;
     opacity: 0;
 }
 
-.form-components.show {
+.login-form-components.show {
     transition: 0.4s;
     opacity: 1;
 }
@@ -46,3 +48,40 @@ body {
     transform: translateY(230%);
 }
 
+.register-button {
+    background-color: none;
+    border: none;
+}
+
+.register-form-box {
+    transition: 1s;
+    background-color: rgba(255, 255, 255, 0.897);
+    height: 50%;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(50%) translateY(300%);
+    opacity: 0;
+}
+
+.register-form-box.show {
+    transition: 1s;
+    transform: translateX(50%) translateY(-60%);
+    opacity: 1;
+}
+
+.register-form-components {
+    transition: 0.4s;
+    padding: 6rem 0;
+    opacity: 0;
+}
+
+.register-form-components.show {
+    transition: 0.4s;
+    opacity: 1;
+}
+
+.back-login-box {
+    background: none;
+    border: none;
+}
