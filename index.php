@@ -26,7 +26,16 @@
         //Login Button pressed
         if(!empty($login_username) && !empty($login_password)) {
             //Login
-            $sql = "";
+            $sql = "SELECT * FROM Pengguna WHERE Username='$login_username'";
+            $result = mysqli_query($conn,$sql);
+            $result = mysqli_fetch_assoc($result);
+            if ($result['User_Password'] == $login_password) {
+                //Password match
+                header("Location: ../SK_Project/Menu/Menu.php");
+                exit;
+            } else {
+                //Password not match
+            }
         } else {
             //Username or password empty
         }
@@ -38,7 +47,6 @@
                 //Insert into database(Register)
                 $sql = "INSERT INTO Pengguna (Username,User_Password) VALUES ('$register_username','$register_password')";
                 $result = mysqli_query($conn,$sql);
-                echo "<script>console.log(\"".mysqli_error($conn)."\")</script>";
             }
             else {
                 //Confirm password and password not same
