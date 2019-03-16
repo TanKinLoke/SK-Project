@@ -1,3 +1,55 @@
+<?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "Sistem_Aset_Bilik_iCreatorZ";
+
+    //Create connection
+    $conn = new mysqli($servername,$username,$password,$dbname);
+
+    //Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    //HTML Components variable
+    $login_button = $_POST["login-button"];
+    $login_username = $_POST["login-username"];
+    $login_password = $_POST["login-password"];
+    $register_button = $_POST["register-button"];
+    $register_username = $_POST["register-username"];
+    $register_password = $_POST["register-password"];
+    $register_confirm_password = $_POST["register-confirm-password"];
+
+    //Check which button is pressed (Login/Register)
+    if(isset($login_button)) {
+        //Login Button pressed
+        if(!empty($login_username) && !empty($login_password)) {
+            //Login
+            $sql = "";
+        } else {
+            //Username or password empty
+        }
+    } 
+    else if (isset($register_button)) {
+        //Register button pressed
+        if(!empty($register_username) && !empty($register_password) && !empty($register_confirm_password)) {
+            if ($register_password == $register_confirm_password) {
+                //Insert into database(Register)
+                $sql = "INSERT INTO Pengguna (Username,User_Password) VALUES ('$register_username','$register_password')";
+                $result = mysqli_query($conn,$sql);
+                echo "<script>console.log(\"".mysqli_error($conn)."\")</script>";
+            }
+            else {
+                //Confirm password and password not same
+            }
+        } else {
+            //Something didn't fill in Register form
+        }
+    } else {
+        //No button pressed
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +84,7 @@
             </div>
             <br>
             <!-- Login Button -->
-            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button" id="login-button">
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button" id="login-button" name="login-button" value="login">
                 Login
             </button>
             <br><br>
@@ -61,11 +113,12 @@
                     <label class="mdl-textfield__label" for="register-confirm-password">Confirm Password</label>
                 </div>
                 <br><br>
-                <!-- Login Button -->
-                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button" id="register-button">
+                <!-- Register Button -->
+                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button" id="register-button" name="register-button" value="register">
                     Register
                 </button>
                 <br><br>
+                <!-- Back to login -->
                 <button type="button" class="back-login-box" onclick="BackToLoginBox()"><a class="login-text">Back to Login</a></button>
             </div>
         </div>
