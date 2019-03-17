@@ -20,6 +20,11 @@
     $register_username = $_POST["register-username"];
     $register_password = $_POST["register-password"];
     $register_confirm_password = $_POST["register-confirm-password"];
+    $wrongPassword = false;
+    $passwordNotSame = false;
+    $loginEmpty = false;
+    $registerEmpty = false;
+    $usernameTaken = false;
 
     //Check which button is pressed (Login/Register)
     if(isset($login_button)) {
@@ -35,9 +40,11 @@
                 exit;
             } else {
                 //Password not match
+                $wrongPassword = true;
             }
         } else {
             //Username or password empty
+            $loginEmpty = true;
         }
     } 
     else if (isset($register_button)) {
@@ -50,9 +57,11 @@
             }
             else {
                 //Confirm password and password not same
+                $passwordNotSame = true;
             }
         } else {
             //Something didn't fill in Register form
+            $registerEmpty = true;
         }
     } else {
         //No button pressed
@@ -89,6 +98,7 @@
                 <!-- Password -->
                 <input class="mdl-textfield__input" type="password" id="login-password" name="login-password">
                 <label class="mdl-textfield__label" for="login-password">Password</label>
+                <span class="mdl-textfield__error" id="wrong-password">Wrong Username or Password</span>
             </div>
             <br>
             <!-- Login Button -->
@@ -105,20 +115,23 @@
             <div class="register-form-components">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- Username -->
-                    <input class="mdl-textfield__input" type="text" id="register-username" name="register-username">
-                    <label class="mdl-textfield__label" for="register-username">Username</label>
+                    <input class="mdl-textfield__input" type="text" id="register-username" name="register-username" onchange="checkUsername()">
+                    <label class="mdl-textfield__label" for="register-username" id="register-username-label">Username</label>
+                    <span class="mdl-textfield__error" id="username-exist">Username already exist</span>
                 </div>
                 <br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- Password -->
                     <input class="mdl-textfield__input" type="password" id="register-password" name="register-password">
                     <label class="mdl-textfield__label" for="register-password">Password</label>
+                    <span class="mdl-textfield__error" id="password-not-same">Password not match with confirm password</span>
                 </div>
                 <br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- Confirm Password -->
                     <input class="mdl-textfield__input" type="password" id="register-confirm-password" name="register-confirm-password">
                     <label class="mdl-textfield__label" for="register-confirm-password">Confirm Password</label>
+                    <span class="mdl-textfield__error" id="password-not-same2">Password not match with confirm password</span>
                 </div>
                 <br><br>
                 <!-- Register Button -->
@@ -131,6 +144,20 @@
             </div>
         </div>
     </form>
+    <?php
+        if ($wrongPassword == true) {
+            //Wrong login password
+            echo "<script>wrongPassword()</script>";
+        } else if ($passwordNotSame == true) {
+            //Register password and confirm password not same
+            echo "<script>notSamePassword()</script>";
+        } else if ($loginEmpty == true) {
 
+        } else if ($registerEmpty == true) {
+
+        } else if ($usernameTaken == true) {
+
+        }
+    ?>
 </body>
 </html>
