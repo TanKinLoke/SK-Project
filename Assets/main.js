@@ -1,6 +1,10 @@
+var registerError = false;
+
 function onLoad() {
     $("#Title").fadeIn("slow");
-    LoginBoxOn();
+    if (registerError == false) {
+        LoginBoxOn();
+    }
     document.getElementById("Title").style.display = "block";
 }
 
@@ -64,10 +68,12 @@ function emptyLogin() {
 }
 
 function notSamePassword() {
+    registerError = true;
     document.getElementById("password-not-same").style.visibility = "visible";
     document.getElementById("password-not-same2").style.visibility = "visible";
     document.getElementById("register-password").style.borderColor = "red";
     document.getElementById("register-confirm-password").style.borderColor = "red";
+    registerButtonPressed();
 }
 
 function checkUsername() {
