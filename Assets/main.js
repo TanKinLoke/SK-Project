@@ -58,6 +58,11 @@ function wrongPassword() {
     document.getElementById("wrong-password").style.visibility = "visible";
 }
 
+function emptyLogin() {
+    document.getElementById("login-empty").style.visibility = "visible";
+    document.getElementById("login-empty").style.color = "red";
+}
+
 function notSamePassword() {
     document.getElementById("password-not-same").style.visibility = "visible";
     document.getElementById("password-not-same2").style.visibility = "visible";

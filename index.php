@@ -13,13 +13,13 @@
     }
 
     //HTML Components variable
-    $login_button = $_POST["login-button"];
-    $login_username = $_POST["login-username"];
-    $login_password = $_POST["login-password"];
-    $register_button = $_POST["register-button"];
-    $register_username = $_POST["register-username"];
-    $register_password = $_POST["register-password"];
-    $register_confirm_password = $_POST["register-confirm-password"];
+    $login_button = isset($_POST["login-button"]) ? $_POST['login-button'] : '';
+    $login_username = isset($_POST["login-username"]) ? $_POST['login-username'] : '';
+    $login_password = isset($_POST["login-password"]) ? $_POST['login-password'] : '';
+    $register_button = isset($_POST["register-button"]) ? $_POST['register-button'] : '';
+    $register_username = isset($_POST["register-username"]) ? $_POST['register-username'] : '';
+    $register_password = isset($_POST["register-password"]) ? $_POST['register-password'] : '';
+    $register_confirm_password = isset($_POST["register-confirm-password"]) ? $_POST['register-confirm-password'] : '';
     $wrongPassword = false;
     $passwordNotSame = false;
     $loginEmpty = false;
@@ -27,7 +27,8 @@
     $usernameTaken = false;
 
     //Check which button is pressed (Login/Register)
-    if(isset($login_button)) {
+    if($login_button == "login") {
+
         //Login Button pressed
         if(!empty($login_username) && !empty($login_password)) {
             //Login
@@ -47,7 +48,7 @@
             $loginEmpty = true;
         }
     } 
-    else if (isset($register_button)) {
+    else if ($register_button == "register") {
         //Register button pressed
         if(!empty($register_username) && !empty($register_password) && !empty($register_confirm_password)) {
             if ($register_password == $register_confirm_password) {
@@ -99,6 +100,7 @@
                 <input class="mdl-textfield__input" type="password" id="login-password" name="login-password">
                 <label class="mdl-textfield__label" for="login-password">Password</label>
                 <span class="mdl-textfield__error" id="wrong-password">Wrong Username or Password</span>
+                <span class="mdl-textfield__error" id="login-empty">Login and Password are empty</span>
             </div>
             <br>
             <!-- Login Button -->
@@ -152,11 +154,9 @@
             //Register password and confirm password not same
             echo "<script>notSamePassword()</script>";
         } else if ($loginEmpty == true) {
-
+            echo "<script>emptyLogin()</script>";
         } else if ($registerEmpty == true) {
-
-        } else if ($usernameTaken == true) {
-
+        
         }
     ?>
 </body>
