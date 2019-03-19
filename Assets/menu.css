@@ -39,7 +39,7 @@ body {
 .cp-box {
     display: inline-block;
     vertical-align: top;
-    background-color: white;
+    background-color: black;
     border: 5px solid black;
     height: 15rem;
     width: 25rem;
@@ -58,8 +58,8 @@ body {
     transition: 0.4s;
     display: inline-block;
     vertical-align: top;
-    background-color: black;
-    border: 5px solid black;
+    background-color: rgba(13, 48, 161, 0.863);
+    border: 5px solid rgb(20, 175, 223);
     height: 15rem;
     width: 25rem;
     margin: 0 2rem;
@@ -73,15 +73,15 @@ body {
     font-size: 2.5rem;
     position: relative;
     transition: 0.4s;
-    background-color: white;
-    color: black;
+    background-color: transparent;
+    color: rgb(20, 175, 223);
     border: none;
     font-family: "Product Sans Bold";
     cursor: pointer;
 }
 
 .cp-text:hover {
-    transition: 0.4s;
-    color: white;
+    transition: 0.4s;    
+    color: rgb(20, 175, 223);
     background-color: black;
 }
