@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -37,9 +38,11 @@
             $result = mysqli_fetch_assoc($result);
             if ($result['User_Password'] == $login_password) {
                 //Password match
+                $_SESSION['user'] = $login_username;
                 echo "true";
             } else {
                 //Password not match
+                $_SESSION['user'] = ""; 
                 echo "false";
             }
         } else {

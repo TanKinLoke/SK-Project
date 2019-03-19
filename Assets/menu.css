@@ -1,3 +1,78 @@
-a {
-    color:red;
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-image: url("../background.png");
+    background-size: 100%;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: "Product Sans Regular";
+    src: url("../fonts/Product-Sans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Product Sans Bold";
+    src: url("../fonts/Product-Sans-Bold.ttf");
+}
+
+.Title {
+    display: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 400%;
+    font-weight: bold;
+    transform: translateY(230%);
+}
+
+.center {
+    height: 50%;
+    width: 100%;
+    transform: translateY(60%);
+}
+
+.cp-box1, .cp-box2, .cp-box3, .cp-box4 {
+    display: inline-block;
+    vertical-align: top;
+    background-color: white;
+    border: 5px solid black;
+    height: 15rem;
+    width: 25rem;
+    margin: 0 2rem;
+}
+
+.cp-box1:hover, .cp-box2:hover, .cp-box3:hover, .cp-box4:hover {
+    display: inline-block;
+    vertical-align: top;
+    background-color: black;
+    border: 5px solid black;
+    height: 15rem;
+    width: 25rem;
+    margin: 0 2rem;
+    color: white;
+}
+
+.cp-text {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    font-size: 2.5rem;
+    position: relative;
+    transition: 0.4s;
+    background-color: white;
+    color: black;
+    border: none;
+    font-family: "Product Sans Bold";
+    cursor: pointer;
+}
+
+.cp-text:hover {
+    transition: 0.4s;
+    color: white;
+    background-color: black;
 }
