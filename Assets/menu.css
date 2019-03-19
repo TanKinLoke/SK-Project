@@ -55,6 +55,7 @@ body {
 }
 
 .cp-box:hover {
+    transition: 0.4s;
     display: inline-block;
     vertical-align: top;
     background-color: black;
