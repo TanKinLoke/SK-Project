@@ -28,10 +28,10 @@
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <div class="center">
         <div class="index-components">
-            <button type='button' href="" class="cp-box1"><a class="cp-text">Tambah Aset</a></button>
-            <button type='button' href="" class="cp-box2"><a class="cp-text">Tambah Aset</a></button>
-            <button type='button' href="" class="cp-box3"><a class="cp-text">Tambah Aset</a></button>
-            <button type='button' href="" class="cp-box4"><a class="cp-text">Tambah Aset</a></button>
+            <button type='button' href="" class="cp-box"><a class="cp-text">Tambah Aset</a></button>
+            <button type='button' href="" class="cp-box"><a class="cp-text">Tambah Aset</a></button>
+            <button type='button' href="" class="cp-box"><a class="cp-text">Tambah Aset</a></button>
+            <button type='button' href="" class="cp-box"><a class="cp-text">Tambah Aset</a></button>
         </div>
     </div>
 </body>
