@@ -12,6 +12,16 @@ body {
     overflow: hidden;
 }
 
+@font-face {
+    font-family: "Product Sans Regular";
+    src: url("../fonts/Product-Sans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Product Sans Bold";
+    src: url("../fonts/Product-Sans-Bold.ttf");
+}
+
 .login-form-box {
     transition: 1s;
     background-color: rgba(255, 255, 255, 0.897);
@@ -42,10 +52,14 @@ body {
 
 .Title {
     display: none;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Product Sans Regular';
     font-size: 400%;
     font-weight: bold;
     transform: translateY(230%);
+}
+
+.registerDialog {
+    font-family: 'Product Sans Regular';
 }
 
 .register-button {

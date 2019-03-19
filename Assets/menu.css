@@ -24,7 +24,7 @@ body {
 
 .Title {
     display: none;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Product Sans Regular';
     font-size: 400%;
     font-weight: bold;
     transform: translateY(230%);
@@ -58,12 +58,12 @@ body {
     transition: 0.4s;
     display: inline-block;
     vertical-align: top;
-    background-color: rgba(13, 48, 161, 0.863);
     border: 5px solid rgb(20, 175, 223);
     height: 15rem;
     width: 25rem;
     margin: 0 2rem;
     color: white;
+    cursor: pointer;
 }
 
 .cp-text {
