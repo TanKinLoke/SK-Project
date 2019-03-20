@@ -28,10 +28,10 @@
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <div class="center">
         <div class="index-components">
-            <button type='button' href="" class="cp-box"><a class="cp-text">Tambah Aset</a></button>
-            <button type='button' href="" class="cp-box"><a class="cp-text">Tambah Aset</a></button>
-            <button type='button' href="" class="cp-box"><a class="cp-text">Tambah Aset</a></button>
-            <button type='button' href="" class="cp-box"><a class="cp-text">Tambah Aset</a></button>
+        <a class="cp-text" href="../main/Add Aset/index.php"><button type='button' href="" class="cp-box">Tambah Aset</button></a>
+        <a class="cp-text" href="../main/Edit Aset/index.php"><button type='button' href="" class="cp-box">Edit Aset</button></a>
+        <a class="cp-text" href="../main/Report/index.php"><button type='button' href="" class="cp-box">Aset Report</button></a>
+        <a class="cp-text" href="../main/Export/index.php"><button type='button' href="" class="cp-box">Export Aset</button></a>
         </div>
     </div>
 </body>

@@ -36,13 +36,22 @@ body {
     transform: translateY(60%);
 }
 
+.index-components {
+    height: 100%;
+    width: 100%;
+}
+
 .cp-box {
+    transition: 0.4s;
     display: inline-block;
     vertical-align: top;
     background-color: black;
+    color: rgb(20, 175, 223);
     border: 5px solid black;
-    height: 15rem;
-    width: 25rem;
+    font-family: "Product Sans Bold";
+    font-size: 2.5rem;
+    height: 50%;
+    width: 20%;
     margin: 0 2rem;
     opacity: 0;
     transform: translateY(20%);
@@ -52,6 +61,7 @@ body {
     transition: 1s;
     opacity: 1;
     transform: translateY(0%);
+    color: rgb(20, 175, 223);
 }
 
 .cp-box:hover {
@@ -59,29 +69,7 @@ body {
     display: inline-block;
     vertical-align: top;
     border: 5px solid rgb(20, 175, 223);
-    height: 15rem;
-    width: 25rem;
     margin: 0 2rem;
-    color: white;
-    cursor: pointer;
-}
-
-.cp-text {
-    background-color: transparent;
-    height: 100%;
-    width: 100%;
-    font-size: 2.5rem;
-    position: relative;
-    transition: 0.4s;
-    background-color: transparent;
     color: rgb(20, 175, 223);
-    border: none;
-    font-family: "Product Sans Bold";
     cursor: pointer;
-}
-
-.cp-text:hover {
-    transition: 0.4s;    
-    color: rgb(20, 175, 223);
-    background-color: black;
 }
