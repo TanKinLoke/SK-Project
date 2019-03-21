@@ -22,7 +22,7 @@
         <br><br><br>
         <input type="text" id="aset-type" class="aset-input" placeholder="Jenis Aset">
         <br><br><br>
-        <button type='button' class="button-submit" onclick="">Submit</button>
+        <button type='button' class="button-submit" onclick="submit()">Submit</button>
     </div>
 </body>
 </html>

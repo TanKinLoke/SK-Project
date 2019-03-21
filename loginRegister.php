@@ -69,4 +69,6 @@
     } else {
         //No button pressed
     }
+
+    mysqli_close($conn);
 ?>
