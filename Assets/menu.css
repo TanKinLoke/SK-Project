@@ -65,7 +65,7 @@ body {
 }
 
 .cp-box:hover {
-    transition: 0.4s;
+    transition: 0.4s !important;
     display: inline-block;
     vertical-align: top;
     border: 5px solid rgb(20, 175, 223);
