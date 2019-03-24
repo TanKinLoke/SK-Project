@@ -21,6 +21,8 @@
         <input type="text" id="aset-id" class="aset-input" placeholder="ID Aset">
         <br><br><br>
         <input type="text" id="aset-type" class="aset-input" placeholder="Jenis Aset">
+        <br><br>
+        <input type="number" id="aset-no" class="aset-input-no" >
         <br><br><br>
         <button type='button' class="button-submit" onclick="submit()">Submit</button>
     </div>

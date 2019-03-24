@@ -30,6 +30,7 @@ body {
     z-index: 1;
     display: none;
     color: rgb(0, 26, 255);
+    text-align: center;
 }
 
 .Title.show {
@@ -38,6 +39,7 @@ body {
     font-size: 600%;
     font-weight: bold;
     transform: translateX(22%) translateY(290%);
+    text-align: center;
 }
 
 .form-box {
@@ -75,6 +77,36 @@ body {
     background-color: black;
     color: rgb(20, 175, 223);
     transform: translateX(90%) translateY(290%);
+    position: static;
+    opacity: 1;
+}
+
+.aset-input-no {
+    transition: 0.4s;
+    border: 3px solid rgb(20, 175, 223);
+    height: 8%;
+    width: 8%;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: black;
+    color: rgb(20, 175, 223);
+    transform: translateX(505%) translateY(330%);
+    position: static;
+    opacity: 0;
+}
+
+.aset-input-no.show {
+    transition: 1s;
+    border: 3px solid rgb(20, 175, 223);
+    height: 8%;
+    width: 8%;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: black;
+    color: rgb(20, 175, 223);
+    transform: translateX(505%) translateY(290%);
     position: static;
     opacity: 1;
 }

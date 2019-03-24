@@ -10,3 +10,15 @@ body {
     background-image: url("./background.png");
     background-size: 100%;
 }
+
+.aset-input {
+    background-color: black;
+    color: rgb(20, 175, 223);
+    border-color: rgb(20, 175, 223);
+    height: 10%;
+    width: 25%;
+    font-size: 250%;
+    left: 20%;
+    top: 20%;
+    position: absolute;
+}
