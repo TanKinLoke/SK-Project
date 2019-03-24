@@ -65,7 +65,9 @@ body {
 }
 
 .register-button {
-    background-color: none;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
     border: none;
 }
 
@@ -100,6 +102,7 @@ body {
 .back-login-box {
     background: none;
     border: none;
+    cursor: pointer;
 }
 
 .spinner {
