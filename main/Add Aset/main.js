@@ -2,6 +2,7 @@ function onLoad() {
     $("#Title").fadeIn();
     setTimeout(function() {
         $(".aset-input").addClass("show");
+        $(".aset-input-no").addClass("show");
         setTimeout(function() {
             $(".button-submit").addClass("show");
         },400);
