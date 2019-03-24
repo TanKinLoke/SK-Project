@@ -13,6 +13,7 @@ function submit() {
     var NamaAset = document.getElementById("aset-name").value;
     var AsetID = document.getElementById("aset-id").value;
     var AsetType = document.getElementById("aset-type").value;
+    var AsetNo = document.getElementById("aset-no").value;
 
     if (NamaAset != "" && AsetID != "" && AsetType != "") {
         var xmlhttp = new XMLHttpRequest;
@@ -25,7 +26,7 @@ function submit() {
                 }
             }
         };
-        xmlhttp.open("POST","sql.php?AsetName="+NamaAset+"&AsetID="+AsetID+"&AsetType"+AsetType,true);
+        xmlhttp.open("POST","sql.php?AsetName="+NamaAset+"&AsetID="+AsetID+"&AsetType="+AsetType+"&AsetNo="+AsetNo,true);
         xmlhttp.send();
     }
 }

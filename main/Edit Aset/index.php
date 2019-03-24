@@ -38,10 +38,10 @@
                 while($row = mysqli_fetch_assoc($result)) {
                     //Table row
                     echo "<tr id='".str_replace(" ","_",$row['Nama_Aset'])."'>\n";
-                    echo "<td><input type='text' onchange='editName(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_text' value='".$row['Nama_Aset']."' readonly></td>\n";
-                    echo "<td><input type='text' onchange='editID(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_ID_text' value='".$row['Aset_ID']."' readonly></td>\n";
-                    echo "<td><input type='text' onchange='editJenis(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_jenis_text' value='".$row['Jenis_Aset']."' readonly></td>\n";
-                    echo "<td><input type='text' onchange='editBilangan(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_bilangan_text' value='".$row['Bilangan']."' readonly></td>\n";
+                    echo "<td><input type='text' onchange='editName(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_text' value='".$row['Nama_Aset']."' readonly=\"true\"></td>\n";
+                    echo "<td><input type='text' onchange='editID(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_ID_text' value='".$row['Aset_ID']."' readonly=\"true\"></td>\n";
+                    echo "<td><input type='text' onchange='editJenis(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_jenis_text' value='".$row['Jenis_Aset']."' readonly=\"true\"></td>\n";
+                    echo "<td><input type='number' onchange='editBilangan(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_bilangan_text' value='".$row['Bilangan']."' readonly=\"true\"></td>\n";
                     echo "<td><button type='button' id='".str_replace(" ","_",$row['Nama_Aset'])."_edit' onclick='editAset(\"".str_replace(" ","_",$row['Nama_Aset'])."\")'>Edit</button>\n<button type='button' id='".str_replace(" ","_",$row['Nama_Aset'])."_delete' onclick='deleteAset(\"".$row['Nama_Aset']."\")'>Delete</button></td>\n";
                     echo "</tr>\n";
                 }
