@@ -1,5 +1,4 @@
 <?php
-    $usernameCheck = $_REQUEST["username"];
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -13,7 +12,14 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT COUNT(*) FROM Pengguna WHERE Username='$usernameCheck'";
+    $usernameCheck = $_REQUEST["username"];
+    $IDCheck = $_REQUEST["id"];
+
+    if (!empty($usernameCheck)) {
+        $sql = "SELECT COUNT(*) FROM Pengguna WHERE Username='$usernameCheck'";
+    } else if (!empty($IDCheck)) {
+        $sql = "SELECT COUNT(*) FROM Pengguna WHERE User_ID='$IDCheck'";
+    }
 
     $result = mysqli_query($conn,$sql);
     $result = mysqli_fetch_assoc($result);
@@ -28,4 +34,6 @@
         //More than 1 data detected (Error: Username is primary key)
         echo mysqli_error($conn);
     }
+
+    mysqli_close($conn);
 ?>

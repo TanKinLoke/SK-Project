@@ -51,6 +51,13 @@
         <div class="register-form-box">
             <div class="register-form-components">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <!-- User ID -->
+                    <input class="mdl-textfield__input" type="text" id="register-id" name="register-id" onchange="checkID()">
+                    <label class="mdl-textfield__label" for="register-id" id="register-user-id-label">User ID</label>
+                    <span class="mdl-textfield__error" id="user-id-exist">User ID already exist</span>
+                </div>
+                <br>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- Username -->
                     <input class="mdl-textfield__input" type="text" id="register-username" name="register-username" onchange="checkUsername()">
                     <label class="mdl-textfield__label" for="register-username" id="register-username-label">Username</label>

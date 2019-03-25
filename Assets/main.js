@@ -118,6 +118,31 @@ function checkUsername() {
     xmlhttp.send();
 }
 
+function checkID() {
+    var id = document.getElementById("register-id").value;
+
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "true") {
+                //Username exist in database
+                document.getElementById("register-id").style.borderColor = "red";
+                document.getElementById("user-id-exist").style.visibility = "visible";
+                document.getElementById("user-id-exist").style.color = "red";
+            } else if (this.responseText == "false") {
+                //Username does not exist in database
+                document.getElementById("register-id").style.borderColor = "rgba(0,0,0,.26)";
+                document.getElementById("user-id-exist").style.visibility = "hidden";
+            } else {
+                //Error
+                console.log(this.responseText);
+            }
+        }
+    };
+    xmlhttp.open("GET","checkUsername.php?id="+id,true);
+    xmlhttp.send();
+}
+
 function userLogin() {
     var login_username = document.getElementById("login-username").value;
     var login_password = document.getElementById("login-password").value;
@@ -147,11 +172,12 @@ function userLogin() {
 }
 
 function userRegister() {
+    var register_user_id = document.getElementById("register-id").value;
     var register_username = document.getElementById("register-username").value;
     var register_password = document.getElementById("register-password").value;
     var register_confirm_password = document.getElementById("register-confirm-password").value;
 
-    if(register_username == "" || register_password == "" || register_confirm_password == "") {
+    if(register_user_id == "" || register_username == "" || register_password == "" || register_confirm_password == "") {
         emptyRegisterInfo();
         return;
     }
@@ -164,6 +190,6 @@ function userRegister() {
             notSamePassword();
         }
     };
-    xmlhttp.open("POST","loginRegister.php?register-button=register&register-username="+register_username+"&register-password="+register_password+"&register-confirm-password="+register_confirm_password,true);
+    xmlhttp.open("POST","loginRegister.php?register-button=register&register-id="+register_user_id+"&register-username="+register_username+"&register-password="+register_password+"&register-confirm-password="+register_confirm_password,true);
     xmlhttp.send();
 }
