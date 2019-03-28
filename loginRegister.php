@@ -20,6 +20,7 @@
     $register_button = isset($_REQUEST["register-button"]) ? $_REQUEST['register-button'] : '';
     $register_id = isset($_REQUEST["register-id"]) ? $_REQUEST['register-id'] : '';
     $register_username = isset($_REQUEST["register-username"]) ? $_REQUEST['register-username'] : '';
+    $register_email = isset($_REQUEST["register-email"]) ? $_REQUEST['register-email'] : '';
     $register_password = isset($_REQUEST["register-password"]) ? $_REQUEST['register-password'] : '';
     $register_confirm_password = isset($_REQUEST["register-confirm-password"]) ? $_REQUEST['register-confirm-password'] : '';
     $wrongPassword = false;
@@ -56,7 +57,7 @@
         if(!empty($register_username) && !empty($register_password) && !empty($register_confirm_password)) {
             if ($register_password == $register_confirm_password) {
                 //Insert into database(Register)
-                $sql = "INSERT INTO Pengguna (User_ID,Username,User_Password) VALUES ('$register_id','$register_username','$register_password')";
+                $sql = "INSERT INTO Pengguna (User_ID,Username,Email,User_Password) VALUES ('$register_id','$register_username','$register_email','$register_password')";
                 $result = mysqli_query($conn,$sql);
                 echo "true";
             }

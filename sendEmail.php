@@ -10,6 +10,26 @@ require 'vendor/autoload.php';
 // Instantiation and passing `true` enables exceptions
 $mail = new PHPMailer(true);
 $code = $_REQUEST["code"];
+$id = $_REQUEST["id"];
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "Sistem_Aset_Bilik_iCreatorZ";
+
+//Create connection
+$conn = new mysqli($servername,$username,$password,$dbname);
+
+//Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM Pengguna WHERE User_ID='$id'";
+$result = mysqli_query($conn,$sql);
+$result = mysqli_fetch_assoc($result);
+$email = $result['Email'];
+$user = $result['Username'];
 
 try {
     //Server settings
@@ -24,7 +44,7 @@ try {
 
     //Recipients
     $mail->setFrom('icreatorz.pg@gmail.com', 'Mailer');
-    $mail->addAddress('kinloketan@gmail.com', 'Vento');     // Add a recipient
+    $mail->addAddress($email, $user);     // Add a recipient
     //$mail->addAddress('ellen@example.com');               // Name is optional
     //$mail->addReplyTo('info@example.com', 'Information');
     // $mail->addCC('cc@example.com');
@@ -43,5 +63,6 @@ try {
     $mail->send();
     echo 'Sent';
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}+".$email;
+
 }

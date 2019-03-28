@@ -208,10 +208,11 @@ function userLogin() {
 function userRegister() {
     var register_user_id = document.getElementById("register-id").value;
     var register_username = document.getElementById("register-username").value;
+    var register_email = document.getElementById("register-email").value;
     var register_password = document.getElementById("register-password").value;
     var register_confirm_password = document.getElementById("register-confirm-password").value;
 
-    if(register_user_id == "" || register_username == "" || register_password == "" || register_confirm_password == "") {
+    if(register_user_id == "" || register_username == "" || register_email == "" || register_password == "" || register_confirm_password == "") {
         emptyRegisterInfo();
         return;
     }
@@ -224,7 +225,7 @@ function userRegister() {
             notSamePassword();
         }
     };
-    xmlhttp.open("POST","loginRegister.php?register-button=register&register-id="+register_user_id+"&register-username="+register_username+"&register-password="+register_password+"&register-confirm-password="+register_confirm_password,true);
+    xmlhttp.open("POST","loginRegister.php?register-button=register&register-id="+register_user_id+"&register-username="+register_username+"&register-email="+register_email+"&register-password="+register_password+"&register-confirm-password="+register_confirm_password,true);
     xmlhttp.send();
 }
 

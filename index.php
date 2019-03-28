@@ -67,6 +67,12 @@
                 </div>
                 <br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <!-- Email -->
+                    <input class="mdl-textfield__input" type="text" id="register-email" name="register-email">
+                    <label class="mdl-textfield__label" for="register-email" id="register-email-label">Email</label>
+                </div>
+                <br>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- Password -->
                     <input class="mdl-textfield__input" type="password" id="register-password" name="register-password">
                     <label class="mdl-textfield__label" for="register-password">Password</label>
