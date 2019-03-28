@@ -19,7 +19,6 @@
 <body onload="onLoad()">
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <!-- Login Form -->
-    <form method="post">
     <div class="login-form-box" id="login-form-box">
         <div class="login-form-components">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label login-username">
@@ -45,6 +44,9 @@
             <br><br>
             <!-- Register dialog -->
             <a class="RegisterDialog">Belum daftar?</a><button class="register-button" type="button" onclick="registerButtonPressed()"><a class="register-text">Daftar sekarang</a></button>
+            <br>
+            <!-- Forgot dialog -->
+            <a class="RegisterDialog">Forgot Password?</a><button class="register-button" type="button" onclick="forgotButtonPressed()"><a class="register-text">Click here</a></button>
         </div>
     </div>
     <!-- Register Form -->
@@ -88,6 +90,30 @@
                 <button type="button" class="back-login-box" onclick="BackToLoginBox()"><a class="login-text">Back to Login</a></button>
             </div>
         </div>
-    </form>
+    <!-- Forgot password Form -->
+    <div class="forgot-form-box">
+            <div class="forgot-form-components">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <!-- User ID -->
+                    <input class="mdl-textfield__input" type="text" id="forgot-id" name="forgot-id" onchange="checkForgotID()">
+                    <label class="mdl-textfield__label" for="forgot-id" id="forgot-user-id-label">User ID</label>
+                    <span class="mdl-textfield__error" id="user-id-exist">User ID does not exist</span>
+                </div>
+                <br>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <!-- Username -->
+                    <input class="mdl-textfield__input" type="text" id="forgot-username" name="forgot-username" readonly="true">
+                    <label class="mdl-textfield__label" for="forgot-username" id="forgot-username-label">Username</label>
+                </div>
+                <br><br>
+                <!-- Send Email Button -->
+                <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button" id="forgot-button" name="register-button" value="register" onclick="userForgot()">
+                    Send Email
+                </button>
+                <br><br>
+                <!-- Back to login -->
+                <button type="button" class="back-login-box" onclick="BackToLoginBox()"><a class="login-text">Back to Login</a></button>
+            </div>
+        </div>
 </body>
 </html>

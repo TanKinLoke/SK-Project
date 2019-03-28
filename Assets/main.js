@@ -36,6 +36,20 @@ function RegisterBoxOff() {
     }, 420);
 }
 
+function ForgotBoxOn() {
+    $(".forgot-form-components").addClass("show");
+    setTimeout(function() {
+        $(".forgot-form-box").addClass("show");
+    }, 420);
+}
+
+function ForgotBoxOff() {
+    $(".forgot-form-components").removeClass("show");
+    setTimeout(function() {
+        $(".forgot-form-box").removeClass("show");
+    }, 420);
+}
+
 function registerButtonPressed() {
     LoginBoxOff();
     setTimeout(function() {
@@ -43,8 +57,16 @@ function registerButtonPressed() {
     },500);
 }
 
+function forgotButtonPressed() {
+    LoginBoxOff();
+    setTimeout(function() {
+        ForgotBoxOn();
+    },500);
+}
+
 function BackToLoginBox() {
     RegisterBoxOff();
+    ForgotBoxOff();
     setTimeout(function() {
         LoginBoxOn();
     },500);
