@@ -117,6 +117,26 @@
                     Send Email
                 </button>
                 <br><br>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <!-- New Password -->
+                    <input class="mdl-textfield__input" type="text" id="reset-password" readonly="true">
+                    <label class="mdl-textfield__label" for="reset-password" id="reset-password-id-label">New Password</label>
+                    <span class="mdl-textfield__error" id="reset-password-empty">Password empty</span>
+                </div>
+                <br>
+                <!-- Code -->
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">             
+                    <input class="mdl-textfield__input" type="text" id="forgot-code" name="forgot-code" readonly="true">
+                    <label class="mdl-textfield__label" for="forgot-code" id="forgot-code-label">Code</label>
+                    <span class="mdl-textfield__error" id="code-empty">Code empty</span>
+                    <span class="mdl-textfield__error" id="code-incorrect">Code incorrect</span>
+                </div>
+                <br><br>
+                <!-- Reset Button -->
+                <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button" id="reset-button" name="reset-button" onclick="userReset()">
+                    Reset
+                </button>
+                <br><br>
                 <!-- Back to login -->
                 <button type="button" class="back-login-box" onclick="BackToLoginBox()"><a class="login-text">Back to Login</a></button>
             </div>
