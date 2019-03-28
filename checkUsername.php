@@ -29,7 +29,10 @@
         echo "false";
     } else if ($result['COUNT(*)'] == 1) {
         //Username exist in database
-        echo "true";
+        $sql = "SELECT * FROM Pengguna WHERE User_ID='$IDCheck'";
+        $result = mysqli_query($conn,$sql);
+        $result = mysqli_fetch_assoc($result);
+        echo "true,".$result['Username'];
     } else {
         //More than 1 data detected (Error: Username is primary key)
         echo mysqli_error($conn);

@@ -1,4 +1,5 @@
 var registerError = false;
+var userExist = false;
 
 function onLoad() {
     $("#Title").fadeIn("slow");
@@ -115,18 +116,28 @@ function notSamePassword() {
     registerButtonPressed();
 }
 
+function ForgotUserExist() {
+    document.getElementById("forgot-id-exist").style.visibility = "hidden";
+}
+
+function ForgotUserNotExist() {
+    document.getElementById("forgot-id-exist").style.visibility = "visible";
+    document.getElementById("forgot-id-exist").style.borderColor = "red";
+}
+
 function checkUsername() {
     var username = document.getElementById("register-username").value;
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            if (this.responseText == "true") {
+            var response = this.responseText.split(",");
+            if (response[0] == "true") {
                 //Username exist in database
                 document.getElementById("register-username").style.borderColor = "red";
                 document.getElementById("username-exist").style.visibility = "visible";
                 document.getElementById("username-exist").style.color = "red";
-            } else if (this.responseText == "false") {
+            } else if (response[0] == "false") {
                 //Username does not exist in database
                 document.getElementById("register-username").style.borderColor = "rgba(0,0,0,.26)";
                 document.getElementById("username-exist").style.visibility = "hidden";
@@ -146,12 +157,13 @@ function checkID() {
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            if (this.responseText == "true") {
+            var response = this.responseText.split(",");
+            if (response[0] == "true") {
                 //Username exist in database
                 document.getElementById("register-id").style.borderColor = "red";
                 document.getElementById("user-id-exist").style.visibility = "visible";
                 document.getElementById("user-id-exist").style.color = "red";
-            } else if (this.responseText == "false") {
+            } else if (response[0] == "false") {
                 //Username does not exist in database
                 document.getElementById("register-id").style.borderColor = "rgba(0,0,0,.26)";
                 document.getElementById("user-id-exist").style.visibility = "hidden";
@@ -213,5 +225,67 @@ function userRegister() {
         }
     };
     xmlhttp.open("POST","loginRegister.php?register-button=register&register-id="+register_user_id+"&register-username="+register_username+"&register-password="+register_password+"&register-confirm-password="+register_confirm_password,true);
+    xmlhttp.send();
+}
+
+function makeid(length) {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  
+    for (var i = 0; i < length; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+  
+    return text;
+}
+
+function userForgot() {
+    if (userExist == false) {
+        window.alert("User does not exist");
+        return;
+    }
+
+    var forgotID = document.getElementById("forgot-id").value;
+    if (forgotID == "" || forgotID == null) {
+        return;
+    }
+    var code = makeid(6);
+
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if (this.status == 200 && this.readyState == 4) {
+            window.alert("Email have been sent, check your email.");
+        }
+    };
+
+    xmlhttp.open("POST","sendEmail.php?code="+code+"&id="+forgotID,true);
+    xmlhttp.send();
+}
+
+function checkForgotID() {
+    var forgotID = document.getElementById("forgot-id").value;
+
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if (this.status == 200 && this.readyState == 4) {
+            var response = this.responseText.split(",");
+            if (response[0] == "true") {
+                //User exist
+                document.getElementById("forgot-username-label").style.opacity = "0";
+                setTimeout(function() {
+                    document.getElementById("forgot-username").value = response[1];
+                },200);
+                ForgotUserExist();
+                userExist = true;
+            } else if (response[0] == "false") {
+                document.getElementById("forgot-username-label").style.opacity = "1";
+                setTimeout(function() {
+                    document.getElementById("forgot-username").value = "";
+                },200);
+                ForgotUserNotExist();
+            }
+        }
+    };
+
+    xmlhttp.open("POST","checkUsername.php?id="+forgotID,true);
     xmlhttp.send();
 }

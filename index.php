@@ -97,7 +97,7 @@
                     <!-- User ID -->
                     <input class="mdl-textfield__input" type="text" id="forgot-id" name="forgot-id" onchange="checkForgotID()">
                     <label class="mdl-textfield__label" for="forgot-id" id="forgot-user-id-label">User ID</label>
-                    <span class="mdl-textfield__error" id="user-id-exist">User ID does not exist</span>
+                    <span class="mdl-textfield__error" id="forgot-id-exist">User ID does not exist</span>
                 </div>
                 <br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
