@@ -257,8 +257,9 @@ function userForgot() {
     xmlhttp.onreadystatechange = function() {
         if (this.status == 200 && this.readyState == 4) {
             window.alert("Email have been sent, check your email.");
-            $("#forgot-code").attr("readonly","false"); 
-            $("#reset-password").attr("readonly","false");
+            $("#forgot-code").attr("readonly",false); 
+            $("#reset-password").attr("readonly",false);
+            $("#reset-confirm-password").attr("readonly",false);
             userResetID = forgotID;
         }
     };
@@ -299,6 +300,7 @@ function checkForgotID() {
 function userReset() {
     var ResetPassword = document.getElementById("reset-password").value;
     var ResetCode = document.getElementById("forgot-code").value;
+    var ResetConfirmPassword = document.getElementById("reset-confirm-password").value;
 
     if (ResetPassword == "" || ResetPassword == null) {
         document.getElementById("reset-password-empty").style.opacity = "1";
@@ -306,6 +308,9 @@ function userReset() {
         document.getElementById("code-incorrect").style.opacity = "1";
     } else if (ResetCode == "" || ResetCode == null) {
         document.getElementById("code-empty").style.opacity = "1";
+    } else if (ResetPassword != ResetConfirmPassword) {
+        window.alert("Reset password aren't same as the one you typed again, please try again.");
+        return;
     } else {
         document.getElementById("reset-password-empty").style.opacity = "0";
         document.getElementById("code-incorrect").style.opacity = "0";
@@ -315,7 +320,9 @@ function userReset() {
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
         if (this.status == 200 && this.readyState == 4) {
-            
+            if (this.responseText == "1") {
+                window.alert("Password reset. Please login again.");
+            }
         }
     };
 

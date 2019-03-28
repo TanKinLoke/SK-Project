@@ -15,7 +15,7 @@
     $id = $_REQUEST['id'];
     $newpassword = $_REQUEST['newpassword'];
 
-    $sql = "UPDATE Pengguna SET User_Password=$newpassword WHERE User_ID=$id";
+    $sql = "UPDATE Pengguna SET User_Password='$newpassword' WHERE User_ID='$id'";
     $result = mysqli_query($conn,$sql);
 
     echo "$result";

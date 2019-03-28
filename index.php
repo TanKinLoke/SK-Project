@@ -119,9 +119,15 @@
                 <br><br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- New Password -->
-                    <input class="mdl-textfield__input" type="text" id="reset-password" readonly="true">
+                    <input class="mdl-textfield__input" type="password" id="reset-password" readonly="true">
                     <label class="mdl-textfield__label" for="reset-password" id="reset-password-id-label">New Password</label>
                     <span class="mdl-textfield__error" id="reset-password-empty">Password empty</span>
+                </div>
+                <br>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <!-- New Password -->
+                    <input class="mdl-textfield__input" type="password" id="reset-confirm-password" readonly="true">
+                    <label class="mdl-textfield__label" for="reset-confirm-password" id="reset-password-id-label">Confirm Password</label>
                 </div>
                 <br>
                 <!-- Code -->
