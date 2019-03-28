@@ -6,12 +6,13 @@
     <title>Edit Aset</title>
     <link rel="icon" href="icon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <script src="main.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />  
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
 </head>
 <body>
     <table>
@@ -38,10 +39,10 @@
                 while($row = mysqli_fetch_assoc($result)) {
                     //Table row
                     echo "<tr id='".str_replace(" ","_",$row['Nama_Aset'])."'>\n";
-                    echo "<td><input type='text' onchange='editName(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_text' value='".$row['Nama_Aset']."' readonly=\"true\"></td>\n";
-                    echo "<td><input type='text' onchange='editID(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_ID_text' value='".$row['Aset_ID']."' readonly=\"true\"></td>\n";
-                    echo "<td><input type='text' onchange='editJenis(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_jenis_text' value='".$row['Jenis_Aset']."' readonly=\"true\"></td>\n";
-                    echo "<td><input type='number' onchange='editBilangan(\"".str_replace(" ","_",$row['Nama_Aset'])."\")' id='".str_replace(" ","_",$row['Nama_Aset'])."_bilangan_text' value='".$row['Bilangan']."' readonly=\"true\"></td>\n";
+                    echo "<td><input type='text' id='".str_replace(" ","_",$row['Nama_Aset'])."_text' value='".$row['Nama_Aset']."' readonly=\"true\"></td>\n";
+                    echo "<td><input type='text' id='".str_replace(" ","_",$row['Nama_Aset'])."_ID_text' value='".$row['Aset_ID']."' readonly=\"true\"></td>\n";
+                    echo "<td><input type='text' id='".str_replace(" ","_",$row['Nama_Aset'])."_jenis_text' value='".$row['Jenis_Aset']."' readonly=\"true\"></td>\n";
+                    echo "<td><input type='number' id='".str_replace(" ","_",$row['Nama_Aset'])."_bilangan_text' value='".$row['Bilangan']."' readonly=\"true\"></td>\n";
                     echo "<td><button type='button' id='".str_replace(" ","_",$row['Nama_Aset'])."_edit' onclick='editAset(\"".str_replace(" ","_",$row['Nama_Aset'])."\")'>Edit</button>\n<button type='button' id='".str_replace(" ","_",$row['Nama_Aset'])."_delete' onclick='deleteAset(\"".$row['Nama_Aset']."\")'>Delete</button></td>\n";
                     echo "</tr>\n";
                 }
