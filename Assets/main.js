@@ -2,6 +2,7 @@ var registerError = false;
 var userExist = false;
 var code;
 var userResetID;
+var page;
 
 function onLoad() {
     $("#Title").fadeIn("slow");
@@ -16,6 +17,7 @@ function LoginBoxOn() {
     setTimeout(function() {
         $(".login-form-components").addClass("show")
     },1000);
+    page = "login";
 }
 
 function LoginBoxOff() {
@@ -23,6 +25,7 @@ function LoginBoxOff() {
     setTimeout(function() {
         $(".login-form-box").removeClass("show");
     },420);
+    page = "";
 }
 
 function RegisterBoxOn() {
@@ -30,6 +33,7 @@ function RegisterBoxOn() {
     setTimeout(function() {
         $(".register-form-components").addClass("show");
     },1000);
+    page = "register";
 }
 
 function RegisterBoxOff() {
@@ -37,6 +41,7 @@ function RegisterBoxOff() {
     setTimeout(function() {
         $(".register-form-box").removeClass("show");
     }, 420);
+    page = "";
 }
 
 function ForgotBoxOn() {
@@ -328,4 +333,16 @@ function userReset() {
 
     xmlhttp.open("POST","resetPassword.php?id="+userResetID+"&newpassword="+ResetPassword,true);
     xmlhttp.send();
+}
+
+$(document).keypress(function(e) {
+    if (e.which == 13) clickEnter();
+})
+
+function clickEnter() {
+    if (page == "register") {
+        userRegister();
+    } else if (page == "login") {
+        userLogin();
+    }
 }
