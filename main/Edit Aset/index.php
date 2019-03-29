@@ -14,43 +14,47 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />  
 </head>
 <body>
-    <table>
+    <table id="aset-settings">
         <?php
-            $usernameCheck = $_REQUEST["username"];
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "Sistem_Aset_Bilik_iCreatorZ";
+            // $usernameCheck = $_REQUEST["username"];
+            // $servername = "localhost";
+            // $username = "root";
+            // $password = "";
+            // $dbname = "Sistem_Aset_Bilik_iCreatorZ";
 
-            //Create connection
-            $conn = new mysqli($servername,$username,$password,$dbname);
+            // //Create connection
+            // $conn = new mysqli($servername,$username,$password,$dbname);
 
-            //Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+            // //Check connection
+            // if ($conn->connect_error) {
+            //     die("Connection failed: " . $conn->connect_error);
+            // }
 
-            $sql = ("SELECT * FROM Aset_Info");
-            $result = mysqli_query($conn,$sql);
+            // $sql = ("SELECT * FROM Aset_Info");
+            // $result = mysqli_query($conn,$sql);
 
-            if (mysqli_num_rows($result) > 0) {
-                // output data of each row
-                while($row = mysqli_fetch_assoc($result)) {
-                    //Table row
-                    echo "<tr id='".str_replace(" ","_",$row['Nama_Aset'])."'>\n";
-                    echo "<td><input type='text' id='".str_replace(" ","_",$row['Nama_Aset'])."_text' value='".$row['Nama_Aset']."' readonly=\"true\"></td>\n";
-                    echo "<td><input type='text' id='".str_replace(" ","_",$row['Nama_Aset'])."_ID_text' value='".$row['Aset_ID']."' readonly=\"true\"></td>\n";
-                    echo "<td><input type='text' id='".str_replace(" ","_",$row['Nama_Aset'])."_jenis_text' value='".$row['Jenis_Aset']."' readonly=\"true\"></td>\n";
-                    echo "<td><input type='number' id='".str_replace(" ","_",$row['Nama_Aset'])."_bilangan_text' value='".$row['Bilangan']."' readonly=\"true\"></td>\n";
-                    echo "<td><button type='button' id='".str_replace(" ","_",$row['Nama_Aset'])."_edit' onclick='editAset(\"".str_replace(" ","_",$row['Nama_Aset'])."\")'>Edit</button>\n<button type='button' id='".str_replace(" ","_",$row['Nama_Aset'])."_delete' onclick='deleteAset(\"".$row['Nama_Aset']."\")'>Delete</button></td>\n";
-                    echo "</tr>\n";
-                }
-            } else {
+            // if (mysqli_num_rows($result) > 0) {
+            //     // output data of each row
+            //     while($row = mysqli_fetch_assoc($result)) {
+            //         //Table row
+            //         echo "<tr id='".str_replace(" ","_",$row['Nama_Aset'])."'>\n";
+            //         echo "<td><input type='text' class='data-bold' id='".str_replace(" ","_",$row['Nama_Aset'])."_text' value='".$row['Nama_Aset']."' readonly=\"true\"></td>\n";
+            //         echo "<td><input type='text' class='data-bold' id='".str_replace(" ","_",$row['Nama_Aset'])."_ID_text' value='".$row['Aset_ID']."' readonly=\"true\"></td>\n";
+            //         echo "<td><input type='text' class='data-bold' id='".str_replace(" ","_",$row['Nama_Aset'])."_jenis_text' value='".$row['Jenis_Aset']."' readonly=\"true\"></td>\n";
+            //         echo "<td><input type='number' class='aset-input-no data-bold' id='".str_replace(" ","_",$row['Nama_Aset'])."_bilangan_text' value='".$row['Bilangan']."' readonly=\"true\"></td>\n";
+            //         echo "<td><button type='button' id='".str_replace(" ","_",$row['Nama_Aset'])."_edit' onclick='editAset(\"".str_replace(" ","_",$row['Nama_Aset'])."\")'>Edit</button>\n<button type='button' id='".str_replace(" ","_",$row['Nama_Aset'])."_delete' onclick='deleteAset(\"".$row['Nama_Aset']."\")'>Delete</button></td>\n";
+            //         echo "</tr>\n";
+            //     }
+            // } else {
                 
-            }
+            // }
 
-            mysqli_close($conn);
+            // mysqli_close($conn);
         ?>
     </table>
+    <br><br><br>
+    <button type='button' onclick="getAset(document.getElementById('page-input-no').value-1)">Back</button>
+    <input type='number' class="page-input-no" id='page-input-no' onchange="getAset(document.getElementById('page-input-no').value)">
+    <button type='button' onclick="getAset(document.getElementById('page-input-no').value+1)">Next</button>
 </body>
 </html>

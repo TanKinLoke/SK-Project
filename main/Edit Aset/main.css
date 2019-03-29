@@ -24,26 +24,54 @@ body {
     position: absolute;
 }
 
+.aset-input-no {
+    background-color: black;
+    color: rgb(20, 175, 223);
+    padding: none;
+    width: 40px;
+}
+
 table {
     display: inline-block;
 }
 
 input {
     padding: 10px;
+    background-color: black;
+    color: rgb(20, 175, 223);
 }
 
 button {
-    background-color: white;
+    background-color: black;
+    color: rgb(20, 175, 223);
     transition: 0.3s;
     height: 40px;
     width: 80px;
-    border: none;
+    border: 3px solid rgb(20, 175, 223);
     border-radius: 5px;
     margin: 0 2px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: lightgray;
+    color: aqua;
     transition: 0.3s;
+}
+
+.data-bold {
+    border: 3px solid rgb(20, 175, 223);
+    background-color: black;
+    color: rgb(20, 175, 223);
+}
+
+.page-input-no {
+    background-color: black;
+    color: rgb(20, 175, 223);
+    transition: 0.3s;
+    height: 30px;
+    width: 60px;
+    border: 3px solid rgb(20, 175, 223);
+    border-radius: 5px;
+    margin: 0 2px;
+    cursor: pointer;
 }

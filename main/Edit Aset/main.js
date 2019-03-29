@@ -3,6 +3,7 @@ var last_focus_id;
 var last_focus_text;
 var last_focus_type;
 var last_focus_bilangan;
+var last_page;
 
 function editAset(aset) {
     last_focus_aset = aset;
@@ -44,6 +45,7 @@ function deleteAset(aset) {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             $("#"+aset.split(" ").join("_")).remove();
+            getAset(last_page);
         }
     };
     xmlhttp.open("POST", "sql.php?function=delete&data=\"" + aset + "\"", true);
@@ -64,7 +66,7 @@ function editName(aset) {
         // $("#"+aset+"_bilangan_text").attr("onchange","editBilangan('"+aset2+"')");
 
         $("#"+aset+"_edit").attr("onclick","editAset('"+aset2+"')");
-        $("#"+aset+"_delete").attr("onclick","deleteaset('"+aset2+"')");
+        $("#"+aset+"_delete").attr("onclick","deleteAset('"+aset2+"')");
         $("#"+aset).attr("id",aset2);
         $("#"+aset+"_text").attr("id",aset2+"_text");
         $("#"+aset+"_ID_text").attr("id",aset2+"_ID_text");
@@ -147,3 +149,59 @@ function clickESC() {
     }
 }
 
+function getAset(page) {
+    //Prevent page less than 1
+    if (page < 1) {
+        page = 1;
+    }
+
+    end = page * 2;
+
+    startFrom = (page-1) * 2;
+
+    var code = "";
+
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if (this.status == 200 && this.readyState == 4) {
+            asetArray = this.responseText;
+            asetArray = asetArray.split(",");
+            
+            //Prevent page more than existing pages
+            if (Math.ceil((asetArray.length - 1)/2) < page) {
+                page = Math.ceil((asetArray.length - 1)/2);
+                end = page * 2;
+                startFrom = (page-1) * 2;
+            }
+
+            last_page = document.getElementById("page-input-no").value = page;
+
+            for (var i = startFrom; i<end ;i++) {
+                if (asetArray[i] == null || asetArray[i] == "") {
+
+                } else {
+                    asetArray2 = asetArray[i].split(":");
+                    code = code.concat(
+                        "<tr id='"+asetArray2[0].split(" ").join("_")+"'>\n"+
+                        "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_text' value='"+asetArray2[0]+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_jenis_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='number' class='aset-input-no data-bold' id='"+asetArray2[0].split(" ").join("_")+"_bilangan_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
+                        "<td><button type='button' id='"+asetArray2[0].split(" ").join("_")+"_edit' onclick='editAset(\""+asetArray2[0].split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_")+"_delete' onclick='deleteAset(\""+asetArray2[0].split(" ").join("_")+"\")'>Delete</button></td>\n"+
+                        "</tr>\n"
+                    )
+            };
+            $("#aset-settings").html("");
+            $("#aset-settings").append("<tbody>"+code+"</tbody>");
+        }
+    }
+    };
+
+    xmlhttp.open("POST","getAset.php",true);
+    xmlhttp.send();
+
+}
+
+window.onload = function() {
+    getAset(1);
+}
