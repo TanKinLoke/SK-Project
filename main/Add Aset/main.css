@@ -23,10 +23,11 @@ body {
 
 .Title {
     position: absolute;
+    top: 10%;
+    width: 100%;
     font-family: "Product Sans Regular";
-    font-size: 600%;
+    font-size: 400%;
     font-weight: bold;
-    transform: translateX(22%) translateY(290%);
     z-index: 1;
     display: none;
     color: rgb(0, 26, 255);
@@ -49,6 +50,7 @@ body {
     background-size: 100%;
     margin: 0 auto;
     position: relative;
+    text-align: center;
 }
 
 .aset-input {
@@ -61,7 +63,7 @@ body {
     font-weight: bold;
     background-color: black;
     color: rgb(20, 175, 223);
-    transform: translateX(90%) translateY(330%);
+    transform: translateY(330%);
     position: static;
     opacity: 0;
 }
@@ -76,7 +78,7 @@ body {
     font-weight: bold;
     background-color: black;
     color: rgb(20, 175, 223);
-    transform: translateX(90%) translateY(290%);
+    transform: translateY(290%);
     position: static;
     opacity: 1;
 }
@@ -91,7 +93,7 @@ body {
     font-weight: bold;
     background-color: black;
     color: rgb(20, 175, 223);
-    transform: translateX(505%) translateY(330%);
+    transform: translateY(330%);
     position: static;
     opacity: 0;
 }
@@ -101,12 +103,13 @@ body {
     border: 3px solid rgb(20, 175, 223);
     height: 8%;
     width: 8%;
+    display: inline-block;
     text-align: center;
     font-size: x-large;
     font-weight: bold;
     background-color: black;
     color: rgb(20, 175, 223);
-    transform: translateX(505%) translateY(290%);
+    transform: translateY(290%);
     position: static;
     opacity: 1;
 }
@@ -121,7 +124,7 @@ body {
     font-weight: bold;
     background-color: black;
     color: rgb(20, 175, 223);
-    transform: translateX(280%) translateY(430%);
+    transform: translateY(430%);
     position: static;
     opacity: 0;
 }
@@ -136,7 +139,7 @@ body {
     font-weight: bold;
     background-color: black;
     color: rgb(20, 175, 223);
-    transform: translateX(280%) translateY(390%);
+    transform: translateY(390%);
     position: static;
     opacity: 1;
 }

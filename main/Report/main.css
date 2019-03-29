@@ -23,22 +23,14 @@ body {
 
 .Title {
     position: absolute;
-    font-family: "Product Sans Regular";
-    font-size: 600%;
-    font-weight: bold;
-    transform: translateX(22%) translateY(290%);
+    top: 10%;
+    width: 100%;
+    font-family: "Product Sans Bold";
+    font-size: 400%;
     z-index: 1;
+    font-weight: bold;
     display: none;
     color: rgb(0, 26, 255);
-    text-align: center;
-}
-
-.Title.show {
-    position: absolute;
-    font-family: "Product Sans Regular";
-    font-size: 600%;
-    font-weight: bold;
-    transform: translateX(22%) translateY(290%);
     text-align: center;
 }
 
@@ -49,6 +41,7 @@ body {
     background-size: 100%;
     margin: 0 auto;
     position: relative;
+    text-align: center;
 }
 
 .aset-input {
@@ -61,9 +54,10 @@ body {
     font-weight: bold;
     background-color: black;
     color: rgb(20, 175, 223);
-    transform: translateX(90%) translateY(330%);
+    transform: translateY(330%);
     position: static;
     opacity: 0;
+    display: inline-block;
 }
 
 .aset-input.show {
@@ -76,7 +70,7 @@ body {
     font-weight: bold;
     background-color: black;
     color: rgb(20, 175, 223);
-    transform: translateX(90%) translateY(290%);
+    transform: translateY(230%);
     position: static;
     opacity: 1;
 }
@@ -121,7 +115,7 @@ body {
     font-weight: bold;
     background-color: black;
     color: rgb(20, 175, 223);
-    transform: translateX(280%) translateY(430%);
+    transform: translateY(430%);
     position: static;
     opacity: 0;
 }
@@ -136,7 +130,7 @@ body {
     font-weight: bold;
     background-color: black;
     color: rgb(20, 175, 223);
-    transform: translateX(280%) translateY(390%);
+    transform: translateY(300%);
     position: static;
     opacity: 1;
 }

@@ -9,6 +9,7 @@ body {
     overflow: hidden;
     background-image: url("./background.png");
     background-size: 100%;
+    text-align: center;
 }
 
 .aset-input {
@@ -21,4 +22,28 @@ body {
     left: 20%;
     top: 20%;
     position: absolute;
+}
+
+table {
+    display: inline-block;
+}
+
+input {
+    padding: 10px;
+}
+
+button {
+    background-color: white;
+    transition: 0.3s;
+    height: 40px;
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: lightgray;
+    transition: 0.3s;
 }
