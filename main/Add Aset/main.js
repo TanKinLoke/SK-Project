@@ -21,6 +21,10 @@ function submit() {
             if (this.status == 200 && this.readyState == 4) {
                 if (this.responseText == "success") {
                     window.alert("Successfully added aset into database");
+                    document.getElementById("aset-name").value = "";
+                    document.getElementById("aset-id").value = "";
+                    document.getElementById("aset-type").value = "";
+                    document.getElementById("aset-no").value = "";
                 } else if (this.responseText == "fail") {
                     window.alert("Error occured. Please contact system administrator, @Kin Loke");
                 }
@@ -30,3 +34,7 @@ function submit() {
         xmlhttp.send();
     }
 }
+
+$(document).keypress(function(e) {
+    if (e.which == 13) submit();
+})
