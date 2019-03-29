@@ -327,6 +327,8 @@ function userReset() {
         if (this.status == 200 && this.readyState == 4) {
             if (this.responseText == "1") {
                 window.alert("Password reset. Please login again.");
+                ForgotBoxOff();
+                LoginBoxOn();
             }
         }
     };
