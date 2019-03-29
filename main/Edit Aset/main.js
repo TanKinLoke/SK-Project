@@ -1,11 +1,15 @@
 var last_focus_aset;
-var last_focus_id;
+var last_focus_id = "";
 var last_focus_text;
 var last_focus_type;
 var last_focus_bilangan;
 var last_page;
 
 function editAset(aset) {
+    if (last_focus_id != "" && last_focus_id != null) {
+        doneEdit(last_focus_text.split(" ").join("_"));
+    }
+
     last_focus_aset = aset;
     last_focus_id = aset+"_text";
     last_focus_text = document.getElementById(last_focus_id).value;
