@@ -150,13 +150,13 @@ body {
     width: 50%;
     top: 50%;
     left: 50%;
-    transform: translateX(310%) translateY(-120%);
+    transform: translateX(310%) translateY(-150%);
     opacity: 0;
 }
 
 .forgot-form-box.show {
     transition: 1s;
-    transform: translateX(50%) translateY(-120%);
+    transform: translateX(50%) translateY(-150%);
     opacity: 1;
 }
 
