@@ -1,4 +1,4 @@
-function onLoad() {
+window.onload = function() {
     $("#Title").fadeIn("slow");
     document.getElementById("Title").style.display = "block";
     setTimeout(function() {

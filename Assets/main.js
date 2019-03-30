@@ -4,7 +4,7 @@ var code;
 var userResetID;
 var page;
 
-function onLoad() {
+window.onload = function() {
     $("#Title").fadeIn("slow");
     if (registerError == false) {
         LoginBoxOn();

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css" /> 
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
-<body onload="onLoad()">
+<body>
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <!-- Login Form -->
     <div class="login-form-box" id="login-form-box">

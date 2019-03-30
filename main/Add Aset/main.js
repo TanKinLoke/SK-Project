@@ -1,4 +1,4 @@
-function onLoad() {
+window.onload = function() {
     $("#Title").fadeIn();
     setTimeout(function() {
         $(".aset-input").addClass("show");
