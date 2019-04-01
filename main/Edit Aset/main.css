@@ -75,3 +75,15 @@ button:hover {
     margin: 0 2px;
     cursor: pointer;
 }
+
+.page-input {
+    background-color: black;
+    color: rgb(20, 175, 223);
+    transition: 0.3s;
+    height: 40px;
+    width: 130px;
+    border: 3px solid rgb(20, 175, 223);
+    border-radius: 5px;
+    margin: 0 2px;
+    cursor: pointer;
+}

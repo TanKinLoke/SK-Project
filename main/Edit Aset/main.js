@@ -206,6 +206,63 @@ function getAset(page) {
 
 }
 
+function getAsetBySearch() {
+    filter = document.getElementById("filter").value;
+    if (filter == "") {
+        getAset(last_page);
+        return;
+    } else {
+        filter = filter.toUpperCase();
+    }
+
+    var code = "";
+
+    var queryType = document.getElementById("queryType").value;
+
+    queryNo = 0;
+
+    if (queryType == "Aset Name") {
+        queryNo = 0;
+    } else if (queryType == "Aset ID") {
+        queryNo = 1;
+    } else if (queryType == "Jenis Aset") {
+        queryNo = 2;
+    }
+
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if (this.status == 200 && this.readyState == 4) {
+            asetArray = this.responseText;
+            asetArray = asetArray.split(",");
+
+            for (var i = 0; i< asetArray.length ;i++) {
+                if (asetArray[i] == null || asetArray[i] == "") {
+
+                } else {
+                    asetArray2 = asetArray[i].split(":");
+                    if (asetArray2[queryNo].toUpperCase().indexOf(filter) > -1) {
+                        code = code.concat(
+                            "<tr id='"+asetArray2[0].split(" ").join("_")+"'>\n"+
+                            "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_text' value='"+asetArray2[0]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_jenis_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='number' class='aset-input-no data-bold' id='"+asetArray2[0].split(" ").join("_")+"_bilangan_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
+                            "<td><button type='button' id='"+asetArray2[0].split(" ").join("_")+"_edit' onclick='editAset(\""+asetArray2[0].split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_")+"_delete' onclick='deleteAset(\""+asetArray2[0].split(" ").join("_")+"\")'>Delete</button></td>\n"+
+                            "</tr>\n"
+                        )
+                    }
+            };
+            $("#aset-settings").html("");
+            $("#aset-settings").append("<tbody>"+code+"</tbody>");
+        }
+    }
+    };
+
+    xmlhttp.open("POST","getAset.php",true);
+    xmlhttp.send();
+
+}
+
 window.onload = function() {
     getAset(1);
 }

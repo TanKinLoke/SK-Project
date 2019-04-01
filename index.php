@@ -54,14 +54,14 @@
             <div class="register-form-components">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- User ID -->
-                    <input class="mdl-textfield__input" type="text" id="register-id" name="register-id" onchange="checkID()">
+                    <input class="mdl-textfield__input" type="text" id="register-id" name="register-id" onkeyup="checkID()" autocomplete="off">
                     <label class="mdl-textfield__label" for="register-id" id="register-user-id-label">User ID</label>
                     <span class="mdl-textfield__error" id="user-id-exist">User ID already exist</span>
                 </div>
                 <br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- Username -->
-                    <input class="mdl-textfield__input" type="text" id="register-username" name="register-username" onchange="checkUsername()">
+                    <input class="mdl-textfield__input" type="text" id="register-username" name="register-username" onkeyup="checkUsername()" autocomplete="off">
                     <label class="mdl-textfield__label" for="register-username" id="register-username-label">Username</label>
                     <span class="mdl-textfield__error" id="username-exist">Username already exist</span>
                 </div>
@@ -101,7 +101,7 @@
             <div class="forgot-form-components">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- User ID -->
-                    <input class="mdl-textfield__input" type="text" id="forgot-id" name="forgot-id" onchange="checkForgotID()">
+                    <input class="mdl-textfield__input" type="text" id="forgot-id" name="forgot-id" onkeyup="checkForgotID()">
                     <label class="mdl-textfield__label" for="forgot-id" id="forgot-user-id-label">User ID</label>
                     <span class="mdl-textfield__error" id="forgot-id-exist">User ID does not exist</span>
                 </div>

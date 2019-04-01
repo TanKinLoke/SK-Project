@@ -249,6 +249,7 @@ function makeid(length) {
 function userForgot() {
     if (userExist == false) {
         window.alert("User does not exist");
+        ForgotUserNotExist();
         return;
     }
 
@@ -290,10 +291,9 @@ function checkForgotID() {
                 userExist = true;
             } else if (response[0] == "false") {
                 document.getElementById("forgot-username-label").style.opacity = "1";
-                setTimeout(function() {
-                    document.getElementById("forgot-username").value = "";
-                },200);
-                ForgotUserNotExist();
+                document.getElementById("forgot-username").value = "";
+                userExist = false;
+                // ForgotUserNotExist();
             }
         }
     };

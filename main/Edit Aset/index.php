@@ -56,5 +56,12 @@
     <button type='button' onclick="getAset(document.getElementById('page-input-no').value-1)">Back</button>
     <input type='number' class="page-input-no" id='page-input-no' onchange="getAset(document.getElementById('page-input-no').value)">
     <button type='button' onclick="getAset(document.getElementById('page-input-no').value+1)">Next</button>
+    <br><br>
+    <select class="page-input" id="queryType">
+    <option value="Aset Name">Aset Name</option>
+    <option value="Aset ID">Aset ID</option>
+    <option value="Jenis Aset">Jenis Aset</option>
+    </select>
+    <input type='text' class="data-bold" id="filter" onkeyup="getAsetBySearch()">
 </body>
 </html>
