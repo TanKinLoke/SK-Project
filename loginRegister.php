@@ -59,7 +59,13 @@
                 //Insert into database(Register)
                 $sql = "INSERT INTO Pengguna (User_ID,Username,Email,User_Password) VALUES ('$register_id','$register_username','$register_email','$register_password')";
                 $result = mysqli_query($conn,$sql);
-                echo "true";
+                if ($result == 1) {
+                    echo "true";
+                } else {
+                    $result = mysqli_error($conn);
+                    echo "$result";
+                }
+               
             }
             else {
                 //Confirm password and password not same

@@ -54,6 +54,7 @@ function submit() {
                     document.getElementById("aset-type").value = "";
                     document.getElementById("aset-no").value = "";
                     document.getElementById("aset-report").value = "";
+                    document.getElementById("aset-id").focus();
                 } else if (this.responseText == "fail") {
                     window.alert("Error occured. Please contact system administrator, @Kin Loke");
                 }
