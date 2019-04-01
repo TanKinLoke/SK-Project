@@ -14,6 +14,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-    
+    <div class="clhslogo-content">
+        <img src="./CL_Logo.png" class="clhslogo-img">
+    </div>
 </body>
 </html>

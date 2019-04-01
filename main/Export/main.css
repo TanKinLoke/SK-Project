@@ -10,3 +10,15 @@ body {
     background-image: url("./background.png");
     background-size: 100%;
 }
+
+.clhslogo-img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    length: 300px;
+    width: 300px;
+}
+
+.clhslogo-content {
+    position: relative;
+}

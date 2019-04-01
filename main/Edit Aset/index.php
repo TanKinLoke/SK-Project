@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />  
 </head>
 <body>
+    <div class="clhslogo-content">
+        <img src="./CL_Logo.png" class="clhslogo-img">
+    </div>
     <table id="aset-settings">
         <?php
             // $usernameCheck = $_REQUEST["username"];

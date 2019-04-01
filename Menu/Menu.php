@@ -25,6 +25,9 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>  
 </head>
 <body>
+    <div class="clhslogo-content">
+        <img src="./CL_Logo.png" class="clhslogo-img">
+    </div>
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <div class="center">
         <div class="index-components">
