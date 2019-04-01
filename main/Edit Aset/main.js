@@ -30,10 +30,12 @@ function doneEdit(aset) {
     var aset2 = document.getElementById(aset+"_text").value;
 
     editName(aset);
-    editID(aset2);
-    editJenis(aset2);
-    editBilangan(aset2);
+    editID(aset);
+    editJenis(aset);
+    editBilangan(aset);
 
+    aset2 = aset2.split(" ").join("_");
+    console.log(aset2);
     $("#"+aset2+"_text").attr("readonly",true);
     $("#"+aset2+"_ID_text").attr("readonly",true);
     $("#"+aset2+"_jenis_text").attr("readonly",true);
@@ -43,7 +45,7 @@ function doneEdit(aset) {
 }
 
 function deleteAset(aset) {
-    aset = aset.replace("_"," ");
+    aset = aset.split("_").join(" ");
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function () {
@@ -61,7 +63,7 @@ function editName(aset) {
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
-        aset2 = aset2.replace(" ","_");
+        aset2 = aset2.split(" ").join("_");
 
         //Old version code, onchange
         // $("#"+aset+"_text").attr("onchange","editName('"+aset2+"')");
@@ -80,9 +82,9 @@ function editName(aset) {
         $("#"+aset+"_delete").attr("id",aset2+"_delete");
     };
 
-    aset = aset.replace("_"," ");
+    aset = aset.split("_").join(" ");
     xmlhttp.open("POST","sql.php?function=editName&data=\"" + aset + "\"&data2=\"" + aset2 + "\"",true);
-    aset = aset.replace(" ","_");
+    aset = aset.split(" ").join("_");
     xmlhttp.send();
 }
 
@@ -95,9 +97,9 @@ function editID(aset) {
         
     };
 
-    aset = aset.replace("_"," ");
+    aset = aset.split("_").join(" ");
     xmlhttp.open("POST","sql.php?function=editID&data=\"" + aset + "\"&data2=\"" + data + "\"",true);
-    aset = aset.replace(" ","_");
+    aset = aset.split(" ").join("_");
     xmlhttp.send();
 }
 
@@ -109,9 +111,9 @@ function editJenis(aset) {
 
     };
 
-    aset = aset.replace("_"," ");
+    aset = aset.split("_").join(" ");
     xmlhttp.open("POST","sql.php?function=editJenis&data=\"" + aset + "\"&data2=\"" + data + "\"",true);
-    aset = aset.replace(" ","_");
+    aset = aset.split(" ").join("_");
     xmlhttp.send();
 }
 
@@ -123,9 +125,9 @@ function editBilangan(aset) {
 
     };
 
-    aset = aset.replace("_"," ");
+    aset = aset.split("_").join(" ");
     xmlhttp.open("POST","sql.php?function=editBilangan&data=\"" + aset + "\"&data2=\"" + data + "\"",true);
-    aset = aset.replace(" ","_");
+    aset = aset.split(" ").join("_");
     xmlhttp.send();
 }
 
