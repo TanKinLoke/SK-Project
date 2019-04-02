@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="clhslogo-content">
-        <img src="./CL_Logo.png" class="clhslogo-img">
+        <img src="./clhs-logo.svg" class="clhslogo-img">
     </div>
     <table id="aset-settings">
         <?php
