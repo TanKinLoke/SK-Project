@@ -1,5 +1,5 @@
 <?php
-    //$usernameCheck = $_REQUEST["username"];
+    $usernameCheck = empty($_REQUEST["username"])?"":$_REQUEST["username"];
     $servername = "localhost";
     $username = "root";
     $password = "";
