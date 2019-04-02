@@ -19,7 +19,7 @@
     </div>
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <div id="form-box" class="form-box">
-        <input type="text" id="aset-id" class="aset-input" onchange="changeName()" list="aset_ID" placeholder="ID Aset">
+        <input type="text" id="aset-id" class="aset-input" onkeyup="changeName()" list="aset_ID" placeholder="ID Aset">
         <datalist id="aset_ID">
         <?php
             $servername="localhost";

@@ -161,9 +161,9 @@ function getAset(page) {
         page = 1;
     }
 
-    end = page * 2;
+    end = page * 3;
 
-    startFrom = (page-1) * 2;
+    startFrom = (page-1) * 3;
 
     var code = "";
 
@@ -174,10 +174,10 @@ function getAset(page) {
             asetArray = asetArray.split(",");
             
             //Prevent page more than existing pages
-            if (Math.ceil((asetArray.length - 1)/2) < page) {
-                page = Math.ceil((asetArray.length - 1)/2);
-                end = page * 2;
-                startFrom = (page-1) * 2;
+            if (Math.ceil((asetArray.length - 1)/3) < page) {
+                page = Math.ceil((asetArray.length - 1)/3);
+                end = page * 3;
+                startFrom = (page-1) * 3;
             }
 
             last_page = document.getElementById("page-input-no").value = page;

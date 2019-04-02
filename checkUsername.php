@@ -12,7 +12,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $usernameCheck = $_REQUEST["username"];
+    $usernameCheck = empty($_REQUEST["username"]) ? "" : $_REQUEST["username"];
     $IDCheck = $_REQUEST["id"];
 
     if (!empty($usernameCheck)) {

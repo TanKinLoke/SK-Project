@@ -22,7 +22,7 @@
     if (mysqli_query($conn,$sql)) {
         echo "success";
     } else {
-        echo "fail";
+        echo mysqli_error($conn);
     }
 
     mysqli_close($conn);
