@@ -262,7 +262,7 @@ function userForgot() {
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
         if (this.status == 200 && this.readyState == 4) {
-            window.alert("Email have been sent, check your email.");
+            window.alert("E-mel telah dihantar, periksa e-mel anda.");
             $("#forgot-code").attr("readonly",false); 
             $("#reset-password").attr("readonly",false);
             $("#reset-confirm-password").attr("readonly",false);
@@ -314,7 +314,7 @@ function userReset() {
     } else if (ResetCode == "" || ResetCode == null) {
         document.getElementById("code-empty").style.opacity = "1";
     } else if (ResetPassword != ResetConfirmPassword) {
-        window.alert("Reset password aren't same as the one you typed again, please try again.");
+        window.alert("Reset kata laluan tidak sama dengan yang anda taipkan, sila cuba lagi.");
         return;
     } else {
         document.getElementById("reset-password-empty").style.opacity = "0";
@@ -326,7 +326,7 @@ function userReset() {
     xmlhttp.onreadystatechange = function() {
         if (this.status == 200 && this.readyState == 4) {
             if (this.responseText == "1") {
-                window.alert("Password reset. Please login again.");
+                window.alert("Kata laluan dikembalikan semula. Sila log masuk semula.");
                 ForgotBoxOff();
                 LoginBoxOn();
             }

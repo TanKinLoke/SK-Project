@@ -27,29 +27,29 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label login-username">
                 <!-- Username -->
                 <input class="mdl-textfield__input" type="text" id="login-username" name="login-username">
-                <label class="mdl-textfield__label" for="login-username">Username</label>
+                <label class="mdl-textfield__label" for="login-username">Nama</label>
             </div>
             <br>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label login-password">
                 <!-- Password -->
                 <input class="mdl-textfield__input" type="password" id="login-password" name="login-password">
-                <label class="mdl-textfield__label" for="login-password">Password</label>
-                <span class="mdl-textfield__error" id="wrong-password">Wrong Username or Password</span>
-                <span class="mdl-textfield__error" id="login-empty">Username and Password are empty</span>
-                <span class="mdl-textfield__error" id="login-username-empty">Username is empty</span>
-                <span class="mdl-textfield__error" id="login-password-empty">Password is empty</span>
+                <label class="mdl-textfield__label" for="login-password">Kata Laluan</label>
+                <span class="mdl-textfield__error" id="wrong-password">Salah Nama Pengguna atau Kata Laluan</span>
+                <span class="mdl-textfield__error" id="login-empty">Nama pengguna dan Kata Laluan kosong</span>
+                <span class="mdl-textfield__error" id="login-username-empty">Nama pangguna kosong</span>
+                <span class="mdl-textfield__error" id="login-password-empty">Kata Laluan kosong</span>
             </div>
             <br>
             <!-- Login Button -->
             <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button" id="login-button" name="login-button" value="login" onclick="userLogin()">
-                Login
+                Log masuk
             </button>
             <br><br>
             <!-- Register dialog -->
             <a class="RegisterDialog">Belum daftar?</a><button class="register-button" type="button" onclick="registerButtonPressed()"><a class="register-text">Daftar sekarang</a></button>
             <br>
             <!-- Forgot dialog -->
-            <a class="RegisterDialog">Forgot Password?</a><button class="register-button" type="button" onclick="forgotButtonPressed()"><a class="register-text">Click here</a></button>
+            <a class="RegisterDialog">Lupa Kata Laluan?</a><button class="register-button" type="button" onclick="forgotButtonPressed()"><a class="register-text">Tekan sini</a></button>
         </div>
     </div>
     <!-- Register Form -->
@@ -58,45 +58,45 @@
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- User ID -->
                     <input class="mdl-textfield__input" type="text" id="register-id" name="register-id" onkeyup="checkID()" autocomplete="off">
-                    <label class="mdl-textfield__label" for="register-id" id="register-user-id-label">User ID</label>
-                    <span class="mdl-textfield__error" id="user-id-exist">User ID already exist</span>
+                    <label class="mdl-textfield__label" for="register-id" id="register-user-id-label">ID Pengguna</label>
+                    <span class="mdl-textfield__error" id="user-id-exist">ID Pengguna sudah wujud</span>
                 </div>
                 <br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- Username -->
                     <input class="mdl-textfield__input" type="text" id="register-username" name="register-username" onkeyup="checkUsername()" autocomplete="off">
-                    <label class="mdl-textfield__label" for="register-username" id="register-username-label">Username</label>
-                    <span class="mdl-textfield__error" id="username-exist">Username already exist</span>
+                    <label class="mdl-textfield__label" for="register-username" id="register-username-label">Nama</label>
+                    <span class="mdl-textfield__error" id="username-exist">Nama pengguna sudah wujud</span>
                 </div>
                 <br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- Email -->
                     <input class="mdl-textfield__input" type="text" id="register-email" name="register-email">
-                    <label class="mdl-textfield__label" for="register-email" id="register-email-label">Email</label>
+                    <label class="mdl-textfield__label" for="register-email" id="register-email-label">E-mel</label>
                 </div>
                 <br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- Password -->
                     <input class="mdl-textfield__input" type="password" id="register-password" name="register-password">
-                    <label class="mdl-textfield__label" for="register-password">Password</label>
-                    <span class="mdl-textfield__error" id="password-not-same">Password not match with confirm password</span>
+                    <label class="mdl-textfield__label" for="register-password">Kata Laluan</label>
+                    <span class="mdl-textfield__error" id="password-not-same">Kata Laluan tidak tepat</span>
                 </div>
                 <br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- Confirm Password -->
                     <input class="mdl-textfield__input" type="password" id="register-confirm-password" name="register-confirm-password">
-                    <label class="mdl-textfield__label" for="register-confirm-password">Confirm Password</label>
-                    <span class="mdl-textfield__error" id="password-not-same2">Password not match with confirm password</span>
-                    <span class="mdl-textfield__error" id="register-something-empty">Some info is not being filled.</span>
+                    <label class="mdl-textfield__label" for="register-confirm-password">Pastikan kata Laluan</label>
+                    <span class="mdl-textfield__error" id="password-not-same2">Kata Laluan tidak tepat</span>
+                    <span class="mdl-textfield__error" id="register-something-empty">Maklumat tidak lengkap</span>
                 </div>
                 <br><br>
                 <!-- Register Button -->
                 <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button" id="register-button" name="register-button" value="register" onclick="userRegister()">
-                    Register
+                    Daftar
                 </button>
                 <br><br>
                 <!-- Back to login -->
-                <button type="button" class="back-login-box" onclick="BackToLoginBox()"><a class="login-text">Back to Login</a></button>
+                <button type="button" class="back-login-box" onclick="BackToLoginBox()"><a class="login-text">Balik ke muka log masuk</a></button>
             </div>
         </div>
     <!-- Forgot password Form -->
@@ -105,40 +105,40 @@
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- User ID -->
                     <input class="mdl-textfield__input" type="text" id="forgot-id" name="forgot-id" onkeyup="checkForgotID()">
-                    <label class="mdl-textfield__label" for="forgot-id" id="forgot-user-id-label">User ID</label>
-                    <span class="mdl-textfield__error" id="forgot-id-exist">User ID does not exist</span>
+                    <label class="mdl-textfield__label" for="forgot-id" id="forgot-user-id-label">ID Pengguna</label>
+                    <span class="mdl-textfield__error" id="forgot-id-exist">ID Pengguna tidak wujud</span>
                 </div>
                 <br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- Username -->
                     <input class="mdl-textfield__input" type="text" id="forgot-username" name="forgot-username" readonly="true">
-                    <label class="mdl-textfield__label" for="forgot-username" id="forgot-username-label">Username</label>
+                    <label class="mdl-textfield__label" for="forgot-username" id="forgot-username-label">Nama pengguna</label>
                 </div>
                 <br><br>
                 <!-- Send Email Button -->
                 <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button" id="forgot-button" name="register-button" value="register" onclick="userForgot()">
-                    Send Email
+                    Hantar e-mel
                 </button>
                 <br><br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- New Password -->
                     <input class="mdl-textfield__input" type="password" id="reset-password" readonly="true">
-                    <label class="mdl-textfield__label" for="reset-password" id="reset-password-id-label">New Password</label>
-                    <span class="mdl-textfield__error" id="reset-password-empty">Password empty</span>
+                    <label class="mdl-textfield__label" for="reset-password" id="reset-password-id-label">Kata Laluan baru</label>
+                    <span class="mdl-textfield__error" id="reset-password-empty">Kata Laluan kosong</span>
                 </div>
                 <br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <!-- New Password -->
                     <input class="mdl-textfield__input" type="password" id="reset-confirm-password" readonly="true">
-                    <label class="mdl-textfield__label" for="reset-confirm-password" id="reset-password-id-label">Confirm Password</label>
+                    <label class="mdl-textfield__label" for="reset-confirm-password" id="reset-password-id-label">Pastikan kata laluan</label>
                 </div>
                 <br>
                 <!-- Code -->
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">             
                     <input class="mdl-textfield__input" type="text" id="forgot-code" name="forgot-code" readonly="true">
-                    <label class="mdl-textfield__label" for="forgot-code" id="forgot-code-label">Code</label>
-                    <span class="mdl-textfield__error" id="code-empty">Code empty</span>
-                    <span class="mdl-textfield__error" id="code-incorrect">Code incorrect</span>
+                    <label class="mdl-textfield__label" for="forgot-code" id="forgot-code-label">Kod</label>
+                    <span class="mdl-textfield__error" id="code-empty">Kod kosong</span>
+                    <span class="mdl-textfield__error" id="code-incorrect">Kod salah</span>
                 </div>
                 <br><br>
                 <!-- Reset Button -->
@@ -147,7 +147,7 @@
                 </button>
                 <br><br>
                 <!-- Back to login -->
-                <button type="button" class="back-login-box" onclick="BackToLoginBox()"><a class="login-text">Back to Login</a></button>
+                <button type="button" class="back-login-box" onclick="BackToLoginBox()"><a class="login-text">Balik ke muka log masuk</a></button>
             </div>
         </div>
 </body>
