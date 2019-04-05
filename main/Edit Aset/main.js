@@ -10,7 +10,7 @@ function editAset(aset) {
         doneEdit(last_focus_text.split(" ").join("_"));
     }
 
-    last_focus_aset = aset;
+    last_focus_aset = aset; 
     last_focus_id = aset+"_text";
     last_focus_text = document.getElementById(last_focus_id).value;
     last_focus_type = document.getElementById(aset+"_jenis_text").value;
@@ -28,13 +28,14 @@ function doneEdit(aset) {
     last_focus_id = "";
     last_focus_text = "";
     var aset2 = document.getElementById(aset+"_text").value;
+    aset2 = aset2.split(" ").join("_").split("\'").join("-");
 
     editName(aset);
-    editID(aset);
-    editJenis(aset);
-    editBilangan(aset);
+    editID(aset2);
+    editJenis(aset2);
+    editBilangan(aset2);
 
-    aset2 = aset2.split(" ").join("_");
+    aset2 = aset2.split(" ").join("_").split("\'").join("-");
     console.log(aset2);
     $("#"+aset2+"_text").attr("readonly",true);
     $("#"+aset2+"_ID_text").attr("readonly",true);
@@ -45,7 +46,7 @@ function doneEdit(aset) {
 }
 
 function deleteAset(aset) {
-    aset = aset.split("_").join(" ");
+    aset = aset.split("_").join(" ").split("-").join("\'");
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function () {
@@ -54,7 +55,7 @@ function deleteAset(aset) {
             getAset(last_page);
         }
     };
-    xmlhttp.open("POST", "sql.php?function=delete&data=\"" + aset + "\"", true);
+    xmlhttp.open("POST", "sql.php?function=delete&data=" + aset, true);
     xmlhttp.send();
 }
 
@@ -63,7 +64,8 @@ function editName(aset) {
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
-        aset2 = aset2.split(" ").join("_");
+        aset2 = aset2.split(" ").join("_").split("\'").join("-");
+        aset = aset.split(" ").join("_").split("\'").join("-");
 
         //Old version code, onchange
         // $("#"+aset+"_text").attr("onchange","editName('"+aset2+"')");
@@ -82,15 +84,14 @@ function editName(aset) {
         $("#"+aset+"_delete").attr("id",aset2+"_delete");
     };
 
-    aset = aset.split("_").join(" ");
-    xmlhttp.open("POST","sql.php?function=editName&data=\"" + aset + "\"&data2=\"" + aset2 + "\"",true);
-    aset = aset.split(" ").join("_");
+    aset = aset.split("_").join(" ").split("-").join("\'");
+    xmlhttp.open("POST","sql.php?function=editName&data=" + aset + "&data2=" + aset2,true);
+    aset = aset.split(" ").join("_").split("\'").join("-");
     xmlhttp.send();
 }
 
 function editID(aset) {
     var data = document.getElementById(aset+"_ID_text").value;
-    console.log(data);
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
@@ -98,7 +99,7 @@ function editID(aset) {
     };
 
     aset = aset.split("_").join(" ");
-    xmlhttp.open("POST","sql.php?function=editID&data=\"" + aset + "\"&data2=\"" + data + "\"",true);
+    xmlhttp.open("POST","sql.php?function=editID&data=" + aset + "&data2=" + data,true);
     aset = aset.split(" ").join("_");
     xmlhttp.send();
 }
@@ -111,9 +112,9 @@ function editJenis(aset) {
 
     };
 
-    aset = aset.split("_").join(" ");
-    xmlhttp.open("POST","sql.php?function=editJenis&data=\"" + aset + "\"&data2=\"" + data + "\"",true);
-    aset = aset.split(" ").join("_");
+    aset = aset.split("_").join(" ").split("-").join("\'");
+    xmlhttp.open("POST","sql.php?function=editJenis&data=" + aset + "&data2=" + data,true);
+    aset = aset.split(" ").join("_").split("\'").join("-");
     xmlhttp.send();
 }
 
@@ -126,7 +127,7 @@ function editBilangan(aset) {
     };
 
     aset = aset.split("_").join(" ");
-    xmlhttp.open("POST","sql.php?function=editBilangan&data=\"" + aset + "\"&data2=\"" + data + "\"",true);
+    xmlhttp.open("POST","sql.php?function=editBilangan&data=" + aset + "&data2=" + data,true);
     aset = aset.split(" ").join("_");
     xmlhttp.send();
 }
@@ -142,7 +143,7 @@ $(document).keyup(function(e) {
 function clickEnter() {
     console.log('Enter');
     if (last_focus_id != "" || last_focus_text != "" || last_focus_id != null || last_focus_text != null) {
-        doneEdit(last_focus_text);
+        doneEdit(last_focus_aset);
     }
 }
 
@@ -151,7 +152,7 @@ function clickESC() {
         document.getElementById(last_focus_id).value = last_focus_text;  
         document.getElementById(last_focus_text+"_jenis_text").value = last_focus_type;
         document.getElementById(last_focus_text+"_bilangan_text").value = last_focus_bilangan;
-        doneEdit(last_focus_text);
+        doneEdit(last_focus_aset);
     }
 }
 
@@ -188,12 +189,12 @@ function getAset(page) {
                 } else {
                     asetArray2 = asetArray[i].split(":");
                     code = code.concat(
-                        "<tr id='"+asetArray2[0].split(" ").join("_")+"'>\n"+
-                        "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_text' value='"+asetArray2[0]+"' readonly=\"true\"></td>\n"+
-                        "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
-                        "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_jenis_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
-                        "<td><input type='number' class='aset-input-no data-bold' id='"+asetArray2[0].split(" ").join("_")+"_bilangan_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
-                        "<td><button type='button' id='"+asetArray2[0].split(" ").join("_")+"_edit' onclick='editAset(\""+asetArray2[0].split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_")+"_delete' onclick='deleteAset(\""+asetArray2[0].split(" ").join("_")+"\")'>Delete</button></td>\n"+
+                        "<tr id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
+                        "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+asetArray2[0].split("\'").join("&#039;")+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_jenis_text' value='"+asetArray2[2].split("\'").join("&#039;")+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='number' class='aset-input-no data-bold' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_bilangan_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
+                        "<td><button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' onclick='editAset(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' onclick='deleteAset(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Delete</button></td>\n"+
                         "</tr>\n"
                     )
             };
@@ -244,12 +245,12 @@ function getAsetBySearch() {
                     asetArray2 = asetArray[i].split(":");
                     if (asetArray2[queryNo].toUpperCase().indexOf(filter) > -1) {
                         code = code.concat(
-                            "<tr id='"+asetArray2[0].split(" ").join("_")+"'>\n"+
-                            "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_text' value='"+asetArray2[0]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_jenis_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='number' class='aset-input-no data-bold' id='"+asetArray2[0].split(" ").join("_")+"_bilangan_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
-                            "<td><button type='button' id='"+asetArray2[0].split(" ").join("_")+"_edit' onclick='editAset(\""+asetArray2[0].split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_")+"_delete' onclick='deleteAset(\""+asetArray2[0].split(" ").join("_")+"\")'>Delete</button></td>\n"+
+                            "<tr id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
+                            "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+asetArray2[0].split("\'").join("&#039;")+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_jenis_text' value='"+asetArray2[2].split("\'").join("&#039;")+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='number' class='aset-input-no data-bold' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_bilangan_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
+                            "<td><button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' onclick='editAset(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' onclick='deleteAset(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Delete</button></td>\n"+
                             "</tr>\n"
                         )
                     }

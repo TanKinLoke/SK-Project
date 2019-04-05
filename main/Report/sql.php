@@ -12,11 +12,11 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $AsetName = $_REQUEST['AsetName'];
+    $AsetName = htmlspecialchars($_REQUEST['AsetName'],ENT_QUOTES);
     $AsetID = $_REQUEST['AsetID'];
-    $AsetType = $_REQUEST['AsetType'];
+    $AsetType = htmlspecialchars($_REQUEST['AsetType'],ENT_QUOTES);
     $AsetNo = $_REQUEST['AsetNo'];
-    $AsetReport = $_REQUEST['AsetReport'];
+    $AsetReport = htmlspecialchars($_REQUEST['AsetReport'],ENT_QUOTES);
 
     $sql = "INSERT INTO Aset_Report (Nama_Aset,Aset_ID,Jenis_Aset,Bilangan,Report) VALUES ('$AsetName','$AsetID','$AsetType','$AsetNo','$AsetReport')";
     if (mysqli_query($conn,$sql)) {

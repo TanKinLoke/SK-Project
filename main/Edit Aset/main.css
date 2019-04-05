@@ -64,7 +64,7 @@ button:hover {
     color: rgb(20, 175, 223);
 }
 
-.page-input-no {
+.page-input-no {    
     background-color: black;
     color: rgb(20, 175, 223);
     transition: 0.3s;

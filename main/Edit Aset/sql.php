@@ -1,7 +1,7 @@
 <?php
     $function = $_REQUEST["function"];
-    $data = $_REQUEST["data"];
-    $data2 = $_REQUEST["data2"];
+    $data = htmlspecialchars($_REQUEST['data'],ENT_QUOTES);
+    $data2 = htmlspecialchars($_REQUEST['data2'],ENT_QUOTES);
 
     //SQL Login Details
     $servername="localhost";
@@ -19,15 +19,16 @@
 
     if ($function == "delete") {
         //SQL commands
-        $sql = "DELETE FROM Aset_Info WHERE Nama_Aset=$data";
+        $sql = "DELETE FROM Aset_Info WHERE Nama_Aset='$data'";
         $result = mysqli_query($conn,$sql);
         echo $result;
     } else if ($function == "editName") {
-        $sql = "UPDATE Aset_Info SET Nama_Aset=$data2 WHERE Nama_Aset=$data";
+        $sql = "UPDATE Aset_Info SET Nama_Aset='$data2' WHERE Nama_Aset='$data'";
         $result = mysqli_query($conn,$sql);
-        echo $result;
+        $error = mysqli_error($conn);
+        echo $data;
     } else if ($function == "editID") {
-        $sql = "UPDATE Aset_Info SET Aset_ID=$data2 WHERE Nama_Aset=$data";
+        $sql = "UPDATE Aset_Info SET Aset_ID='$data2' WHERE Nama_Aset='$data'";
         $result = mysqli_query($conn,$sql);
         echo $result;
     } else if ($function == "editJenis") {

@@ -20,7 +20,7 @@
     $result = mysqli_fetch_assoc($result);
 
     if ($result > 0) {
-        $response = $result['Nama_Aset'].":".$result['Bilangan'].":".$result['Jenis_Aset'];
+        $response = htmlspecialchars_decode($result['Nama_Aset'],ENT_QUOTES).":".$result['Bilangan'].":".htmlspecialchars_decode($result['Jenis_Aset'],ENT_QUOTES);
         echo "$response";
     } else {
         echo "Not Exist";

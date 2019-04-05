@@ -20,9 +20,9 @@
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
         while($row = mysqli_fetch_assoc($result)) {
-            $response .= $row['Nama_Aset'].":";
+            $response .= htmlspecialchars_decode($row['Nama_Aset'],ENT_QUOTES).":";
             $response .= $row['Aset_ID'].":";
-            $response .= $row['Jenis_Aset'].":";
+            $response .= htmlspecialchars_decode($row['Jenis_Aset'],ENT_QUOTES).":";
             $response .= $row['Bilangan'].":,";
         }
     } else {
