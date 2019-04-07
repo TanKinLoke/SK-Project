@@ -20,7 +20,7 @@ function submit() {
         xmlhttp.onreadystatechange = function() {
             if (this.status == 200 && this.readyState == 4) {
                 if (this.responseText == "success") {
-                    window.alert("Successfully added aset into database");
+                    window.alert("Berjaya menambah aset ke pangkalan data");
                     document.getElementById("aset-name").value = "";
                     document.getElementById("aset-id").value = "";
                     document.getElementById("aset-type").value = "";

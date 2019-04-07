@@ -14,13 +14,26 @@
 
     $ID = $_REQUEST["id"];
 
+    $sql = "SELECT COUNT(*) FROM Aset_Report WHERE Aset_ID='$ID'";
+    $result = mysqli_query($conn,$sql);
+    $result = mysqli_fetch_assoc($result);
+    if ($result['COUNT(*)'] > 0) {
+        $sql = "SELECT * FROM Aset_Report WHERE Aset_ID='$ID'";
+        $result = mysqli_query($conn,$sql);
+        $result = mysqli_fetch_assoc($result);
+
+        $response = htmlspecialchars_decode($result['Nama_Aset'],ENT_QUOTES).":".$result['Bilangan'].":".htmlspecialchars_decode($result['Jenis_Aset'],ENT_QUOTES).":".htmlspecialchars_decode($result['Report'],ENT_QUOTES);
+        echo "$response";   
+        exit;
+    }
+
     $sql = "SELECT * FROM Aset_Info WHERE Aset_ID='$ID'";
 
     $result = mysqli_query($conn,$sql);
     $result = mysqli_fetch_assoc($result);
 
     if ($result > 0) {
-        $response = htmlspecialchars_decode($result['Nama_Aset'],ENT_QUOTES).":".$result['Bilangan'].":".htmlspecialchars_decode($result['Jenis_Aset'],ENT_QUOTES);
+        $response = htmlspecialchars_decode($result['Nama_Aset'],ENT_QUOTES).":".$result['Bilangan'].":".htmlspecialchars_decode($result['Jenis_Aset'],ENT_QUOTES).":"."";
         echo "$response";
     } else {
         echo "Not Exist";

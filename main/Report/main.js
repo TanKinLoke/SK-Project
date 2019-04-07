@@ -24,6 +24,7 @@ function changeName() {
                 document.getElementById("aset-name").value = data[0];
                 document.getElementById("aset-no").value = data[1];
                 document.getElementById("aset-type").value = data[2];
+                document.getElementById("aset-report").value = data[3];
             } else {
                 document.getElementById("aset-name").value = "";
                 document.getElementById("aset-no").value = "";
@@ -48,7 +49,15 @@ function submit() {
         xmlhttp.onreadystatechange = function() {
             if (this.status == 200 && this.readyState == 4) {
                 if (this.responseText == "success") {
-                    window.alert("Successfully added report into database");
+                    window.alert("Berjaya menambah laporan ke pangkalan data");
+                    document.getElementById("aset-name").value = "";
+                    document.getElementById("aset-id").value = "";
+                    document.getElementById("aset-type").value = "";
+                    document.getElementById("aset-no").value = "";
+                    document.getElementById("aset-report").value = "";
+                    document.getElementById("aset-id").focus();
+                } else if (this.responseText == "Sedit") {
+                    window.alert("Berjaya memperbaharui laporan dalam pangkalan data");
                     document.getElementById("aset-name").value = "";
                     document.getElementById("aset-id").value = "";
                     document.getElementById("aset-type").value = "";
@@ -56,7 +65,7 @@ function submit() {
                     document.getElementById("aset-report").value = "";
                     document.getElementById("aset-id").focus();
                 } else if (this.responseText == "fail") {
-                    window.alert("Error occured. Please contact system administrator, @Kin Loke");
+                    window.alert("Ralat berlaku. Sila hubungi pentadbir sistem, @Kin Loke");
                 }
             }
         };
