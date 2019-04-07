@@ -21,6 +21,8 @@
         //SQL commands
         $sql = "DELETE FROM Aset_Info WHERE Nama_Aset='$data'";
         $result = mysqli_query($conn,$sql);
+        $sql = "DELETE FROM Aset_Report WHERE Nama_Aset='$data'";
+        $result = mysqli_query($conn,$sql);
         echo $result;
     } else if ($function == "editName") {
         $sql = "UPDATE Aset_Info SET Nama_Aset='$data2' WHERE Nama_Aset='$data'";
