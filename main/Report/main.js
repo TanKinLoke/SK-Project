@@ -29,6 +29,7 @@ function changeName() {
                 document.getElementById("aset-name").value = "";
                 document.getElementById("aset-no").value = "";
                 document.getElementById("aset-type").value = "";
+                document.getElementById("aset-report").value = "";
             }
         }
     };
