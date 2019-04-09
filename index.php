@@ -42,6 +42,8 @@
             <br>
             <input type='checkbox' onchange='showPassword()' id='show-password'>
             <label for="show-password" class='unselectable'>Tunjukkan Kata Laluan</label>
+            <input type='checkbox' id='remember-password'>
+            <label for="remember-password" class='unselectable'>Ingat saya</label>
             <br><br>
             <!-- Login Button -->
             <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button" id="login-button" name="login-button" value="login" onclick="userLogin()">

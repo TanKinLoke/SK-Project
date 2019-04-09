@@ -5,6 +5,14 @@ var userResetID;
 var page;
 
 window.onload = function() {
+    var checkUserCookie = getCookie("username");
+    var checkPassCookie = getCookie("password");
+    if (checkUserCookie != "") {
+        if (checkPassCookie != "") {
+            cookieLogin(checkUserCookie,checkPassCookie);
+        }
+    }
+
     $("#Title").fadeIn("slow");
     if (registerError == false) {
         LoginBoxOn();
@@ -187,6 +195,7 @@ function checkID() {
 function userLogin() {
     var login_username = document.getElementById("login-username").value;
     var login_password = document.getElementById("login-password").value;
+    var remember_password = document.getElementById("remember-password").checked;
     var errorPassword = 0;
     
     if (login_username == "" && login_password == "") {
@@ -202,10 +211,32 @@ function userLogin() {
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
-        if(this.responseText ==  "true") {
-            window.location.href = "../SK_Project/Menu/Menu.php";
-        } else if (this.responseText == "false") {
-            wrongPassword();
+        if (this.status == 200 && this.readyState == 4) {
+            if(this.responseText ==  "true") {
+                if (remember_password) {
+                    createCookie("username",login_username,3);
+                    createCookie("password",login_password,3);
+                }
+
+                window.location.href = "../SK_Project/Menu/Menu.php";
+            } else if (this.responseText == "false") {
+                wrongPassword();
+            }
+        }
+    };
+    xmlhttp.open("POST","loginRegister.php?login-button=login&login-username="+login_username+"&login-password="+login_password,true);
+    xmlhttp.send();
+}
+
+function cookieLogin(login_username,login_password) {
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if (this.status == 200 && this.readyState == 4) {
+            if(this.responseText ==  "true") {
+                window.location.href = "../SK_Project/Menu/Menu.php";
+            } else if (this.responseText == "false") {
+
+            }
         }
     };
     xmlhttp.open("POST","loginRegister.php?login-button=login&login-username="+login_username+"&login-password="+login_password,true);
@@ -229,7 +260,7 @@ function userRegister() {
         if (this.status == 200 && this.readyState == 4) {
             if(this.responseText ==  "true") {
                 window.alert("Daftar berjaya");
-                location.reload();
+                BackToLoginBox();
             } else if (this.responseText == "false") {
                 notSamePassword();
             }
@@ -360,3 +391,27 @@ function showPassword() {
         $("#login-password").attr("type","password");
     }
 }
+
+function createCookie(name,value,minute) {
+    var date = new Date();
+    date.setTime(date.getTime() + (minute*60*1000));
+    var expiretime = "expires="+ date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expiretime + ";path=/";
+}
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
