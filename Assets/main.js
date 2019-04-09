@@ -226,10 +226,13 @@ function userRegister() {
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
-        if(this.responseText ==  "true") {
-            location.reload();
-        } else if (this.responseText == "false") {
-            notSamePassword();
+        if (this.status == 200 && this.readyState == 4) {
+            if(this.responseText ==  "true") {
+                window.alert("Daftar berjaya");
+                location.reload();
+            } else if (this.responseText == "false") {
+                notSamePassword();
+            }
         }
     };
     xmlhttp.open("POST","loginRegister.php?register-button=register&register-id="+register_user_id+"&register-username="+register_username+"&register-email="+register_email+"&register-password="+register_password+"&register-confirm-password="+register_confirm_password,true);
