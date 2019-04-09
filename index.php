@@ -40,6 +40,9 @@
                 <span class="mdl-textfield__error" id="login-password-empty">Kata Laluan kosong</span>
             </div>
             <br>
+            <input type='checkbox' onchange='showPassword()' id='show-password'>
+            <label for="show-password" class='unselectable'>Tunjukkan Kata Laluan</label>
+            <br><br>
             <!-- Login Button -->
             <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent login-button" id="login-button" name="login-button" value="login" onclick="userLogin()">
                 Log masuk

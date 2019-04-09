@@ -351,3 +351,12 @@ function clickEnter() {
         userLogin();
     }
 }
+
+function showPassword() {
+    var checkbox = document.getElementById("show-password").checked;
+    if (checkbox) {
+        $("#login-password").attr("type","text");
+    } else {
+        $("#login-password").attr("type","password");
+    }
+}
