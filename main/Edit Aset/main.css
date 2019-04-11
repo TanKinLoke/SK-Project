@@ -96,6 +96,10 @@ button:hover {
     width: 300px;
 }
 
-.clhslogo-content {
+/* .clhslogo-content {
     position: relative;
+} */
+
+.center {
+    margin-top: 15%;
 }
