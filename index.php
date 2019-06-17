@@ -17,9 +17,6 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
-    <div class="clhslogo-content">
-        <img src="./clhs-logo.svg" class="clhslogo-img">
-    </div>
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <!-- Login Form -->
     <div class="login-form-box" id="login-form-box">

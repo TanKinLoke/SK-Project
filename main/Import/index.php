@@ -14,8 +14,28 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-    <div class="clhslogo-content">
-        <img src="./clhs-logo.svg" class="clhslogo-img">
+    <div id="form-box" class="form-box">
+        <center>
+        <form action="sql.php" enctype="multipart/form-data"  method="POST">    
+        <table>
+            <tr>
+                <td colspan="2">
+                    <center><h3>Import Aset</h3></center>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <center><br><input name="csv" type="file" id="file"></center>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <center><br><input type="submit" value="Import Fail"></center>
+                </td>
+            </tr>
+        </table>
+        </form>
+    </center>
     </div>
 </body>
 </html>

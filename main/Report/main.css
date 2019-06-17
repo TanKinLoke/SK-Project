@@ -7,7 +7,7 @@ body {
     height: 100%;
     width: 100%;
     /* overflow: hidden; */
-    background-image: url("./background.png");
+    background-image: url("./background.jpeg");
     background-size: 100%;
 }
 
@@ -140,16 +140,4 @@ body {
     border: 3px solid rgb(0, 247, 255);
     color: rgb(0, 247, 255);
     cursor: pointer;
-}
-
-.clhslogo-img {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    length: 300px;
-    width: 300px;
-}
-
-.clhslogo-content {
-    position: relative;
 }

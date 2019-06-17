@@ -14,9 +14,6 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
-    <div class="clhslogo-content">
-        <img src="./clhs-logo.svg" class="clhslogo-img">
-    </div>
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <div id="form-box" class="form-box">
         <input type="text" id="aset-id" class="aset-input" onkeyup="changeName()" list="aset_ID" placeholder="ID Aset">
