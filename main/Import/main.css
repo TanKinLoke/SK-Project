@@ -20,3 +20,33 @@ body {
     position: relative;
     text-align: center;
 }
+
+.title {
+    top: 10%;
+    width: 100%;
+    font-size: 400%;
+    font-weight: bold;
+    z-index: 1;
+    color: rgb(0, 26, 255);
+}
+
+.button-submit {
+    transition: 0.4s;
+    border: 3px solid rgb(20, 175, 223);
+    height: 6%;
+    width: 35%;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    background-color: black;
+    color: rgb(20, 175, 223);
+    position: static;
+    opacity: 1;
+}
+
+.button-submit:hover {
+    transition: 0.4s;
+    border: 3px solid rgb(0, 247, 255);
+    color: rgb(0, 247, 255);
+    cursor: pointer;
+}

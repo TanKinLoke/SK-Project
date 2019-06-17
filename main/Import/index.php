@@ -15,22 +15,23 @@
 </head>
 <body>
     <div id="form-box" class="form-box">
+    <br><br><br><br>
         <center>
         <form action="sql.php" enctype="multipart/form-data"  method="POST">    
         <table>
             <tr>
                 <td colspan="2">
-                    <center><h3>Import Aset</h3></center>
+                    <center><a class="title">Import Aset<a></center>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <center><br><input name="csv" type="file" id="file"></center>
+                    <center><br><br><input name="csv" type="file" id="file"></center>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <center><br><input type="submit" value="Import Fail"></center>
+                    <center><br><input type="submit" class="button-submit" value="Import Fail"></center>
                 </td>
             </tr>
         </table>
