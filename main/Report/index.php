@@ -16,7 +16,7 @@
 <body>
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
     <div id="form-box" class="form-box">
-        <input type="text" id="aset-id" class="aset-input" onkeyup="changeName()" list="aset_ID" placeholder="ID Aset">
+        <input type="text" id="aset-id" class="aset-input" oninput="changeName()" list="aset_ID" placeholder="ID Aset">
         <datalist id="aset_ID">
         <?php
             $servername="localhost";
@@ -53,11 +53,12 @@
         <br><br><br>
         <input type="text" id="aset-no" class="aset-input" placeholder="Bilangan Aset" readonly="true">
         <br><br><br>
-        <input type="text" id="aset-type" class="aset-input" placeholder="Nama Aset" readonly="true">
+        <input type="text" id="aset-type" class="aset-input" placeholder="Jenis Aset" readonly="true">
         <br><br><br>
         <input type="text" id="aset-report" class="aset-input" placeholder="Report">
         <br><br><br><br>
         <button type='button' class="button-submit" onclick="submit()">Submit</button>
+        <button type='button' class="button-report" onclick="report()" id="button-report" disabled>Check Report</button>
     </div>
 </body>
 </html>

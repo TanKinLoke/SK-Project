@@ -6,6 +6,9 @@ window.onload = function() {
         setTimeout(function() {
             $(".button-submit").addClass("show");
         },400);
+        setTimeout(function() {
+            $(".button-report").addClass("show");
+        },400);
     },300);
 }
 
@@ -25,6 +28,7 @@ function changeName() {
                 document.getElementById("aset-no").value = data[1];
                 document.getElementById("aset-type").value = data[2];
                 document.getElementById("aset-report").value = data[3];
+                document.getElementById("button-report").disabled = false;
             } else {
                 document.getElementById("aset-name").value = "";
                 document.getElementById("aset-no").value = "";
@@ -78,3 +82,13 @@ function submit() {
 $(document).keypress(function(e) {
     if (e.which == 13) submit();
 })
+
+function report() {
+    var NamaAset = document.getElementById("aset-name").value;
+    var AsetID = document.getElementById("aset-id").value;
+    var AsetType = document.getElementById("aset-type").value;
+    var AsetNo = document.getElementById("aset-no").value;
+    var AsetReport = document.getElementById("aset-report").value;
+
+    window.location = "report.php?id="+AsetID+"&nama="+NamaAset+"&bilangan="+AsetNo+"&jenis="+AsetType+"&report="+AsetReport;
+}
