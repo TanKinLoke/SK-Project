@@ -22,6 +22,7 @@ function editAset(aset) {
     $("#"+aset+"_bilangan_text").attr("readonly",false);
     $("#"+aset+"_edit").attr("onclick","doneEdit(\""+aset+"\")");
     $("#"+aset+"_edit").text("Done");
+    document.getElementById("")
 }
 
 function doneEdit(aset) {
