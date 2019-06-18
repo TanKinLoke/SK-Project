@@ -20,9 +20,16 @@ function editAset(aset) {
     $("#"+aset+"_ID_text").attr("readonly",false);
     $("#"+aset+"_jenis_text").attr("readonly",false);
     $("#"+aset+"_bilangan_text").attr("readonly",false);
+    document.getElementById(aset+"_text").style.backgroundColor = "rgb(44,44,44)";
+    document.getElementById(aset+"_ID_text").style.backgroundColor = "rgb(44,44,44)";
+    document.getElementById(aset+"_jenis_text").style.backgroundColor = "rgb(44,44,44)";
+    document.getElementById(aset+"_bilangan_text").style.backgroundColor = "rgb(44,44,44)";
     $("#"+aset+"_edit").attr("onclick","doneEdit(\""+aset+"\")");
     $("#"+aset+"_edit").text("Done");
-    document.getElementById("")
+    test = document.getElementById(aset+"_text").value;
+    document.getElementById(aset+"_text").value = ""; 
+    document.getElementById(aset+"_text").value = test; 
+    document.getElementById(aset+"_text").focus();
 }
 
 function doneEdit(aset) {
@@ -42,6 +49,10 @@ function doneEdit(aset) {
     $("#"+aset2+"_ID_text").attr("readonly",true);
     $("#"+aset2+"_jenis_text").attr("readonly",true);
     $("#"+aset2+"_bilangan_text").attr("readonly",true);
+    document.getElementById(aset+"_text").style.backgroundColor = "black";
+    document.getElementById(aset+"_ID_text").style.backgroundColor = "black";
+    document.getElementById(aset+"_jenis_text").style.backgroundColor = "black";
+    document.getElementById(aset+"_bilangan_text").style.backgroundColor = "black";
     $("#"+aset2+"_edit").attr("onclick","editAset('"+aset2+"')");
     $("#"+aset2+"_edit").text("Edit");
 }
