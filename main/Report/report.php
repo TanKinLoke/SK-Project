@@ -38,6 +38,8 @@
                 echo $_GET['report'];
             ?></td></tr>
         </table>
+        <br>
+        <button type='button' class="print-button" onclick="window.print()">Cetak</button>
         </center>
     </div>
 </body>

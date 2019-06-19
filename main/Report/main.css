@@ -190,6 +190,7 @@ table, tr, td {
 }
 
 .logout-box {
+    transition: 0.4s;
     font-family: "Product Sans Bold";
     font-size: 1.5rem;
     background-color: black;
@@ -212,4 +213,23 @@ table, tr, td {
 
 .topleft {
     position: relative;
+}
+
+.print-button {
+    transition: 0.4s;
+    font-family: "Product Sans Bold";
+    font-size: 1.5rem;
+    background-color: black;
+    color: rgb(20, 175, 223);
+    border: 5px solid black;
+    height: 100px;
+    width: 100px;
+    z-index: 1;
+}
+
+.print-button:hover {
+    transition: 0.4s !important;
+    border: 5px solid rgb(20, 175, 223);
+    color: rgb(20, 175, 223);
+    cursor: pointer;
 }
