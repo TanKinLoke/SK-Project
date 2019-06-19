@@ -1,3 +1,14 @@
+<?php
+    session_start();
+
+    $_SESSION['user'] = isset($_SESSION['user']) ? $_SESSION['user'] : "";
+
+    if ($_SESSION['user'] == "") {
+        header("Location: ../../");
+    }
+
+    //session_destroy();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +25,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
+<div class="topleft">
+        <a href="../../Menu/Menu.php"><button type='button' class="logout-box">Balik</button></a>
+    </div>
     <div id="form-box" class="form-box">
     <br><br><br><br>
         <center>

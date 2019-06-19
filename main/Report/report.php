@@ -15,6 +15,9 @@
 </head>
 <body>
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
+    <div class="topleft">
+        <a href="./index.php"><button type='button' class="logout-box">Balik</button></a>
+    </div>
     <div id="form-box" class="form-box">
         <br><br><br><br><br><br><br><br><br>
         <center>

@@ -91,3 +91,28 @@ button:hover {
 .center {
     margin-top: 15%;
 }
+
+.logout-box {
+    font-family: "Product Sans Bold";
+    font-size: 1.5rem;
+    background-color: black;
+    color: rgb(20, 175, 223);
+    border: 5px solid black;
+    position: absolute;
+    top: -250px;
+    left: 20px;
+    height: 100px;
+    width: 100px;
+    z-index: 1;
+}
+
+.logout-box:hover {
+    transition: 0.4s !important;
+    border: 5px solid rgb(20, 175, 223);
+    color: rgb(20, 175, 223);
+    cursor: pointer;
+}
+
+.topleft {
+    position: relative;
+}

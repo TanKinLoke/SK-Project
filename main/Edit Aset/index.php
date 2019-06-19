@@ -1,3 +1,14 @@
+<?php
+    session_start();
+
+    $_SESSION['user'] = isset($_SESSION['user']) ? $_SESSION['user'] : "";
+
+    if ($_SESSION['user'] == "") {
+        header("Location: ../../");
+    }
+
+    //session_destroy();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +25,9 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />  
 </head>
 <body>
+    <div class="topleft">
+        <a href="../../Menu/Menu.php"><button type='button' class="logout-box">Balik</button></a>
+    </div>
     <div class="center">
         <table id="aset-settings">
             <?php

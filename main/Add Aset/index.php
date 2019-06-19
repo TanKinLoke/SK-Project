@@ -1,3 +1,14 @@
+<?php
+    session_start();
+
+    $_SESSION['user'] = isset($_SESSION['user']) ? $_SESSION['user'] : "";
+
+    if ($_SESSION['user'] == "") {
+        header("Location: ../../");
+    }
+
+    //session_destroy();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +26,9 @@
 </head>
 <body>
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
+    <div class="topleft">
+        <a href="../../Menu/Menu.php"><button type='button' class="logout-box">Balik</button></a>
+    </div>
     <div id="form-box" class="form-box">
         <input type="text" id="aset-name" class="aset-input" placeholder="Nama Aset">
         <br><br><br>

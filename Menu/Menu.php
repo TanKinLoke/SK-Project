@@ -6,8 +6,6 @@
     if ($_SESSION['user'] == "") {
         header("Location: ../");
     }
-
-    //session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,6 +24,9 @@
 </head>
 <body>
     <a class="Title" id="Title">Sistem Aset Bilik i-CreatorZ</a>
+    <div class="topleft">
+        <a href="../index.php"><button type='button' class="logout-box">Log Keluar</button></a>
+    </div>
     <div class="center">
         <div class="index-components">
         <a class="cp-text" href="../main/Add Aset/index.php"><button type='button' href="" class="cp-box" id="test">Tambah Aset</button></a>
