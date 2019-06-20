@@ -29,6 +29,7 @@
         <a href="../../Menu/Menu.php"><button type='button' class="logout-box">Balik</button></a>
     </div>
     <div class="center">
+    <a class="Title" id="Title">Edit Aset</a>
         <table id="aset-settings">
             <?php
                 // $usernameCheck = $_REQUEST["username"];
