@@ -116,3 +116,30 @@ button:hover {
 .topleft {
     position: relative;
 }
+
+tr, td {
+    color: rgb(20,175,223);
+    font-weight: bold;
+}
+
+.Title {
+    position: absolute;
+    right: 3%;
+    top: 10%;
+    width: 100%;
+    font-family: "Product Sans Regular";
+    font-size: 400%;
+    font-weight: bold;
+    z-index: 1;
+    display: none;
+    color: rgb(0, 26, 255);
+    text-align: center;
+}
+
+.Title.show {
+    font-family: "Product Sans Regular";
+    font-size: 600%;
+    font-weight: bold;
+    transform: translateX(-122%) translateY(190%);
+    text-align: center;
+}

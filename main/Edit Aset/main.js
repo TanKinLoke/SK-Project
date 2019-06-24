@@ -195,6 +195,7 @@ function getAset(page) {
 
             last_page = document.getElementById("page-input-no").value = page;
 
+            code = code.concat("<tr><td>Nama Aset</td><td>Kod Aset</td><td>Jenis Aset</td><td>Bilangan Aset</td></tr>");
             for (var i = startFrom; i<end ;i++) {
                 if (asetArray[i] == null || asetArray[i] == "") {
 
@@ -250,6 +251,8 @@ function getAsetBySearch() {
             asetArray = this.responseText;
             asetArray = asetArray.split(",");
 
+            code = code.concat("<tr><td>Nama Aset</td><td>Kod Aset</td><td>Jenis Aset</td><td>Bilangan Aset</td></tr>");
+
             for (var i = 0; i< asetArray.length ;i++) {
                 if (asetArray[i] == null || asetArray[i] == "") {
 
@@ -279,5 +282,6 @@ function getAsetBySearch() {
 }
 
 window.onload = function() {
+    $("#Title").fadeIn();
     getAset(1);
 }
