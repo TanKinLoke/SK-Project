@@ -174,9 +174,9 @@ function getAset(page) {
         page = 1;
     }
 
-    end = page * 3;
+    end = page * 5;
 
-    startFrom = (page-1) * 3;
+    startFrom = (page-1) * 5;
 
     var code = "";
 
@@ -188,9 +188,9 @@ function getAset(page) {
             
             //Prevent page more than existing pages
             if (Math.ceil((asetArray.length - 1)/3) < page) {
-                page = Math.ceil((asetArray.length - 1)/3);
-                end = page * 3;
-                startFrom = (page-1) * 3;
+                page = Math.ceil((asetArray.length - 1)/5);
+                end = page * 5;
+                startFrom = (page-1) * 5;
             }
 
             last_page = document.getElementById("page-input-no").value = page;
@@ -206,7 +206,7 @@ function getAset(page) {
                         "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
                         "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_jenis_text' value='"+asetArray2[2].split("\'").join("&#039;")+"' readonly=\"true\"></td>\n"+
                         "<td><input type='number' class='aset-input-no data-bold' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_bilangan_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
-                        "<td><button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' onclick='editAset(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' onclick='deleteAset(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Delete</button></td>\n"+
+                        "<td><button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' onclick='editAset(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' onclick='deleteAset(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Hapus</button></td>\n"+
                         "</tr>\n"
                     )
             };

@@ -70,7 +70,7 @@
         <input type="text" id="aset-report" class="aset-input" placeholder="Report">
         <br><br><br><br>
         <button type='button' class="button-submit" onclick="submit()">Submit</button>
-        <button type='button' class="button-report" onclick="report()" id="button-report" disabled>Check Report</button>
+        <button type='button' class="button-report" onclick="report()" id="button-report" disabled>Periksa Report</button>
     </div>
 </body>
 </html>

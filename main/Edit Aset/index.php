@@ -73,7 +73,7 @@
         <button type='button' onclick="getAset(document.getElementById('page-input-no').value+1)">Next</button>
         <br><br>
         <select class="page-input" id="queryType">
-        <option value="Aset Name">Aset Name</option>
+        <option value="Aset Name">Nama Aset</option>
         <option value="Aset ID">Aset ID</option>
         <option value="Jenis Aset">Jenis Aset</option>
         </select>
